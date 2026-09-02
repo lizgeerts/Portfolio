@@ -37,4 +37,142 @@
   --about-text: clamp(1.0938rem, 1.0417rem + 0.2315vw, 1.25rem);
   /* 17px → 18px */
   --buttons-projects: clamp(1.0625rem, 1.0417rem + 0.0926vw, 1.125rem);
+
+
+  /* spacing */
+  /* Space s: 30px → 60px */
+  --nav-space: clamp(1.875rem, 1.25rem + 2.7778vw, 3.75rem);
+  /*  25px → 28px */
+  --padding-buttonv: clamp(1.5625rem, 1.5rem + 0.2778vw, 1.75rem);
+  /*  14px → 15px */
+  --padding-buttonh: clamp(0.875rem, 0.8542rem + 0.0926vw, 0.9375rem);
+}
+
+body {
+  background-color: var(--black);
+  color: var(--white);
+  font-family: "proxima-nova", sans-serif;
+  margin: 0;
+  line-height: 130%;
+  font-weight: 400;
+}
+
+.area {
+  font-family: "area-inktrap",
+    sans-serif;
+  line-height: 100%;
+}
+
+.navigation {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: clamp(1.6875rem, 3.3542rem + -1.8519vw, 2.9375rem);
+  /* 47 -> 27 */
+}
+
+.nav__links--contact {
+  display: none;
+}
+
+.nav__links--text {
+  text-decoration: none;
+  color: var(--white);
+  font-size: var(--navtext);
+}
+
+.nav__links {
+  display: flex;
+  gap: var(--nav-space);
+}
+
+header,
+main,
+footer {
+  /*phone: 342px desktop 1280px*/
+  max-width: 342px;
+  margin: 0 auto;
+}
+
+.homepage__hero {
+  margin-top: clamp(3.75rem, 3.2917rem + 2.037vw, 5.125rem);
+}
+
+.hhero__title {
+  font-size: var(--H1);
+  font-weight: 600;
+}
+
+.hhero__title--special {
+  color: var(--green);
+  margin-top: 0.75rem;
+}
+
+.homepage__hero--image {
+  max-width: 282px;
+  /* desktop: 483px */
+  height: auto;
+  align-self: end;
+  margin: 3rem 0;
+}
+
+.hhero__sub {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.hhero__description {
+  font-size: var(--descriptiontext);
+  line-height: 130%;
+  margin-bottom: 1.875rem;
+}
+
+.semi--blueunder {
+  font-weight: 600;
+  display: inline-block;
+  position: relative;
+}
+
+.semi--blueunder::after {
+  content: url("../assets/icons/blue-line.svg");
+
+  position: absolute;
+  width: 90px;
+  height: 6px;
+
+  left: 30%;
+  transform: translateX(-30%);
+  top: 30%;
+  margin-top: 4px;
+}
+
+.button {
+  background-color: var(--blue);
+  color: var(--black);
+  font-size: var(--text18);
+  font-weight: 600;
+  padding: var(--padding-buttonh) var(--padding-buttonv);
+  border-radius: 1.25rem;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.button--text {
+  line-height: 100%;
+  margin-top: -0.2rem;
+}
+
+.button svg {
+  transition: transform 0.3s ease;
+}
+
+/* Only animate when the user hasn't requested reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+
+  .button:hover svg {
+    transform: translateX(6px);
+  }
 }
