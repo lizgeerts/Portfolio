@@ -17,8 +17,9 @@ const projects = defineCollection({
 
     partners: z.string(),
     labels: z.array(z.string()),
-    role: z.string(),
-    technology: z.string(),
+    role: z.string().optional(),
+    technology: z.string().optional(),
+    tools: z.string().optional(),
 
     buttons: z.array(z.object({
       id: z.string(),

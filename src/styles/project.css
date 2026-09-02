@@ -1,0 +1,39 @@
+.project__hero--image {
+  width: 100%;
+  height: auto;
+}
+
+.project__hero--AntwerPOV {
+  max-width: 396px;
+}
+
+.image__project {
+  display: flex;
+  gap: 1rem;
+}
+
+.image__project img, .image__project--2 img {
+  width: 100%;
+  height: auto;
+}
+
+.image__project p:nth-of-type(1) img {
+  max-width: 375px;
+}
+
+.image__project p:nth-of-type(2) img, .image__project--2 p:nth-of-type(1) img {
+  max-width: 205px;
+}
+
+.image__project--2 p:nth-of-type(2) img {
+  max-width: 308px;
+}
+
+.image__project--long p:nth-of-type(1) img {
+  max-width: 205px;
+}
+
+.antwerp__videoGrid p:nth-of-type(1) img {
+  max-width: 113px;
+  height: auto;
+}

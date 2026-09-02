@@ -1,5 +1,9 @@
 ---
+import "../styles/global.css";
+import "../styles/project.css";
+
 import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
 import Layout from "./Layout.astro";
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
@@ -9,19 +13,91 @@ interface Props {
 }
 
 const { project } = Astro.props;
-const { title, date, image, description, partners, role, technology, buttons } =
-  project.data;
+const {
+  title,
+  date,
+  image,
+  description,
+  partners,
+  role,
+  technology,
+  buttons,
+  labels,
+  tools,
+} = project.data;
 ---
 
 <Layout>
   <Navigation />
 
   <main>
-    <section class="project-hero">
-      <!-- hero content: title, date.getFullYear(), image, description, partners, role, technology, buttons -->
+    <section class="project__hero">
+      <div class="phero__titdes">
+        <h1 class="titdes__title">{title}</h1>
+        <p class="titdes__date">{date}</p>
+        <p class="titdes__description">{description}</p>
+      </div>
+      <Image
+        width={792}
+        height={1245}
+        src={image}
+        format="avif"
+        alt={title}
+        class=`project__hero--image project__hero--${title}`
+      />
+      <div class="phero__info">
+        <div class="info__partners phero__info--set">
+          <h3 class="phero__set--title">Partners</h3>
+          <p class="phero__set--text">{partners}</p>
+        </div>
+
+        <div class="info__labels phero__info--set">
+          <h3 class="phero__set--title">Labels</h3>
+          <p class="phero__set--text">
+            {labels.map((label) => <span> {label},</span>)}
+          </p>
+        </div>
+
+        {
+          technology ? (
+            <div class="info__technology phero__info--set">
+              <h3 class="phero__set--title">Technology</h3>
+              <p class="phero__set--text">{technology}</p>
+            </div>
+          ) : null
+        }
+
+        {
+          tools ? (
+            <div class="info__tools phero__info--set">
+              <h3 class="phero__set--title">Tools</h3>
+              <p class="phero__set--text">{tools}</p>
+            </div>
+          ) : null
+        }
+
+        {
+          role ? (
+            <div class="info__role phero__info--set">
+              <h3 class="phero__set--title">Role</h3>
+              <p class="phero__set--text">{role}</p>
+            </div>
+          ) : null
+        }
+
+        <div class="info__buttons">
+          {
+            buttons.map((button) => (
+              <a href={button.href} target="_blank" rel="noopener noreferrer">
+                {button.label}
+              </a>
+            ))
+          }
+        </div>
+      </div>
     </section>
 
-    <section class="project-content">
+    <section class="project__content">
       <slot />
     </section>
   </main>
