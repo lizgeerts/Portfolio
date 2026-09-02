@@ -1,17 +1,38 @@
 ---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+import ProjectCard from "../components/ProjectCard.astro";
 
+const projects = (await getCollection("projects"));
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+	<Navigation />
+
+	<main>
+		<section>
+			<h1>Hero</h1>
+		</section>
+
+		<section id="projects">
+			<h2>Projects</h2>
+			<p>
+				Studying Devine has allowed me to experiment across multiple
+				disciplines. From designing apps to UX case studies to exploring
+				technologies and using it to make accessible and fun experiences. Here
+				are some of my best works.
+			</p>
+			<div class="projects__list">
+				{projects.map((project) => <ProjectCard project={project} />)}
+			</div>
+		</section>
+
+		<section id="about">
+			<h2>About me</h2>
+		</section>
+	</main>
+
+	<Footer />
+</Layout>

@@ -1,0 +1,30 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Layout from "./Layout.astro";
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+const { title, date, image, description, partners, role, technology, buttons } =
+  project.data;
+---
+
+<Layout>
+  <Navigation />
+
+  <main>
+    <section class="project-hero">
+      <!-- hero content: title, date.getFullYear(), image, description, partners, role, technology, buttons -->
+    </section>
+
+    <section class="project-content">
+      <slot />
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

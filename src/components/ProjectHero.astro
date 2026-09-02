@@ -1,0 +1,104 @@
+---
+interface Props {
+  image: string;
+  title: string;
+  year: string;
+  description: string;
+  partners: string;
+  labels: string;
+
+  role?: string;
+  tools?: string;
+  technology?: string;
+
+  button: {
+    label: string;
+    href: string;
+  };
+
+  secondButton?: {
+    label: string;
+    href: string;
+  };
+}
+
+const {
+  image,
+  title,
+  year,
+  description,
+  partners,
+  labels,
+  role,
+  tools,
+  technology,
+  button,
+  secondButton,
+} = Astro.props;
+---
+
+<section class="project__hero">
+  <a href="/" class="project__back"> ← Back </a>
+
+  <div class="project__hero-content">
+    <div class="project__hero-image">
+      <img src={image} alt={title} />
+    </div>
+
+    <div class="project__hero-info">
+      <div class="project__title">
+        <h1>{title}</h1>
+        <span>{year}</span>
+      </div>
+
+      <p>{description}</p>
+
+      <div class="project__meta">
+        <div>
+          <h3>Partners</h3>
+          <p>{partners}</p>
+        </div>
+
+        <div>
+          <h3>Labels</h3>
+          <p>{labels}</p>
+        </div>
+
+        {
+          role && (
+            <div>
+              <h3>Role</h3>
+              <p>{role}</p>
+            </div>
+          )
+        }
+
+        {
+          tools && (
+            <div>
+              <h3>Tools</h3>
+              <p>{tools}</p>
+            </div>
+          )
+        }
+
+        {
+          technology && (
+            <div>
+              <h3>Technology</h3>
+              <p>{technology}</p>
+            </div>
+          )
+        }
+      </div>
+
+      <div class="project__links">
+        <a href={button.href}>
+          {button.label} →
+        </a>
+
+        {secondButton && <a href={secondButton.href}>{secondButton.label} →</a>}
+      </div>
+    </div>
+  </div>
+</section>

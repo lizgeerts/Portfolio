@@ -1,0 +1,40 @@
+:root {
+  --white: #EBF2FB;
+  --green: #95E896;
+  --blue: #69AAFF;
+  --black: #01070F;
+  --blue-text: #A7C8F2;
+  --gray: #EAECF0;
+  --black-soft: #121417;
+
+
+  /* text */
+  /* 50 - 102 */
+  --H1: clamp(3.125rem, 2.0417rem + 4.8148vw, 6.375rem);
+  /* 50px → 72px */
+  --H2: clamp(3.125rem, 2.6667rem + 2.037vw, 4.5rem);
+  /* 40 - 56 */
+  --H3: clamp(2.5rem, 2.1667rem + 1.4815vw, 3.5rem);
+  /* 24px → 56px */
+  --H4: clamp(1.5rem, 0.8333rem + 2.963vw, 3.5rem);
+  /* 18 - 24 */
+  --navtext: clamp(1.125rem, 1rem + 0.5556vw, 1.5rem);
+  /* 19px → 20px */
+  --descriptiontext: clamp(1.1875rem, 1.1667rem + 0.0926vw, 1.25rem);
+  /* 18.5px → 20px */
+  --text: clamp(1.1563rem, 1.125rem + 0.1389vw, 1.25rem);
+  /* 20px */
+  --text20: 1.25rem;
+  --text17: 1.0625rem;
+  --text18: 1.125rem;
+  /* 14px → 14.5px */
+  --label-text: clamp(0.875rem, 0.8646rem + 0.0463vw, 0.9063rem);
+  /*20px → 40px */
+  --swaptext: clamp(1.25rem, 0.8333rem + 1.8519vw, 2.5rem);
+  /*  17px → 22px */
+  --location-text: clamp(1.0625rem, 0.9583rem + 0.463vw, 1.375rem);
+  /*  17.5px → 20px */
+  --about-text: clamp(1.0938rem, 1.0417rem + 0.2315vw, 1.25rem);
+  /* 17px → 18px */
+  --buttons-projects: clamp(1.0625rem, 1.0417rem + 0.0926vw, 1.125rem);
+}
