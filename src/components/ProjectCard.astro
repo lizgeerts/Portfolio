@@ -1,4 +1,5 @@
 ---
+import "../styles/global.css";
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 
@@ -7,109 +8,36 @@ interface Props {
 }
 
 const { project } = Astro.props;
-const { title, cardDate, labels, cardImage, image, cardDescription, description } =
-  project.data;
+const {
+  title,
+  cardDate,
+  labels,
+  cardImage,
+  image,
+  cardDescription,
+  description,
+} = project.data;
 
 const cardYear = cardDate;
-const cardImg = cardImage ?? image;
+const cardImg = cardImage;
 const cardText = cardDescription ?? description;
 ---
 
-<a class="project-card" href={`/projects/${project.id}`}>
-  <div class="project-card__info">
-    <div class="project-card__top">
+<a class="project__card" href={`/projects/${project.id}`}>
+  <div class="card__info">
+    <div class="card__title area">
       <h3>{title}</h3>
-      <span class="project-card__year">{cardYear}</span>
+      <span class="card__year">{cardYear}</span>
     </div>
 
-    <p class="project-card__description">{cardText}</p>
+    <p class="card__description">{cardText}</p>
 
-    <ul class="project-card__labels">
+    <ul class="card__labels">
       {labels.map((label) => <li>{label}</li>)}
     </ul>
   </div>
 
-  <div class="project-card__image">
-    <Image src={cardImg} alt={title} width={500} height={500} />
+  <div class=`card__image card__img--bg${title}`>
+    <Image class=`card__image--img card__image--${title}` src={cardImg} alt={title} width={490} height={580} />
   </div>
 </a>
-
-<style>
-  .project-card {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: stretch;
-    border-radius: 1.5rem;
-    overflow: hidden;
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .project-card__info {
-    background: var(--color-bg-light, #e9eaee);
-    padding: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .project-card__top {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-  }
-
-  .project-card__top h3 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin: 0;
-  }
-
-  .project-card__year {
-    font-size: 1.5rem;
-  }
-
-  .project-card__description {
-    font-size: 1.1rem;
-    line-height: 1.4;
-    margin: 0;
-  }
-
-  .project-card__labels {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.75rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .project-card__labels li {
-    border: 1.5px solid currentColor;
-    border-radius: 999px;
-    padding: 0.75rem 1.25rem;
-    text-align: center;
-    font-size: 1rem;
-  }
-
-  .project-card__image {
-    background: #1c1c1e;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-  }
-
-  .project-card__image img {
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 1rem;
-    object-fit: cover;
-  }
-
-  @media (max-width: 700px) {
-    .project-card {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
