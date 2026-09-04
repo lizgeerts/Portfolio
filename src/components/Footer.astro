@@ -1,3 +1,63 @@
-<footer>
-  <p>© 2026 Liz Geerts</p>
+---
+import flower from "../assets/icons/flower.svg";
+const { color } = Astro.props;
+---
+
+<footer class="footer">
+  <div
+    class=`footer__watermark area footer__watermark--${color}`
+    aria-hidden="true"
+  >
+    Contact
+  </div>
+
+  <div class="footer__header">
+    <img src={flower.src} alt="" class="footer__flower" />
+    <span class=`footer__rule footer__rule--${color}`></span>
+  </div>
+
+  <div class=`footer__intro footer__intro--${color}`>
+    <p class="footer__title">Liz Geerts</p>
+    <p class="footer__location">Kortrijk | Baarle-Nassau</p>
+  </div>
+
+  <div class=`footer__body`>
+    <ul class="footer__links">
+      <li class="footer__links-item">
+        <a
+          href="mailto:lizgeerts@gmail.com"
+          class=`footer__link footer__link--${color}`>Email</a
+        >
+      </li>
+      <li class="footer__links-item">
+        <a
+          href="https://github.com/lizgeerts"
+          class=`footer__link footer__link--${color}`>Github</a
+        >
+      </li>
+      <li class="footer__links-item">
+        <a
+          href="https://www.linkedin.com/in/liz-geerts-2a9b11295/"
+          class=`footer__link footer__link--${color}`>LinkedIn</a
+        >
+      </li>
+      <li class="footer__links-item">
+        <a
+          href="https://www.behance.net/lizgeerts"
+          class=`footer__link footer__link--${color}`>Behance</a
+        >
+      </li>
+    </ul>
+
+    <ul class="footer__nav">
+      <li class="footer__nav-item">
+        <a href="#projects" class=`footer__link footer__link--${color}`
+          >Projects</a
+        >
+      </li>
+      <li class="footer__nav-item">
+        <a href="#about" class=`footer__link footer__link--${color}`>About</a>
+      </li>
+    </ul>
+  </div>
 </footer>

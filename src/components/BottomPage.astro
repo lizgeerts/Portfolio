@@ -1,0 +1,86 @@
+---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import screen1 from "../assets/images/aboutme1.png";
+import screen2 from "../assets/images/aboutme2.png";
+import lizSvg from "../assets/icons/LIZ.svg";
+import locationSvg from "../assets/icons/location.svg";
+import Footer from "../components/Footer.astro";
+import BackButton from "../components/BackButton.astro";
+---
+
+<div class="bottom">
+  <section id="about" class="about">
+    <h2 class="about__title area">
+      About <span class="about__title--green">me</span>
+    </h2>
+    <div class="screen area">
+      <button class="screen__button screen__button--1">On screen</button>
+      <button class="screen__button screen__button--2">Off screen</button>
+    </div>
+    <div class="screen__info">
+      <Image
+        width={685}
+        height={737}
+        src={screen1}
+        format="avif"
+        alt="a picture of Liz"
+        class="screen__info--image"
+      />
+      <div class="screen__info--nl">
+        <Image class="screen__info--liz" src={lizSvg} alt="LIZ Icon" />
+        <div class="info__nl--location">
+          <Image
+            class="screen__info--location"
+            src={locationSvg}
+            alt="Location Icon"
+          />
+          <p>Kortrijk</p>
+        </div>
+      </div>
+      <div class="screen__info--text">
+        <p class="info__text--1">
+          Currently, I am in my third year of Digital Design and Development
+          (Devine) at Howest University. Here I've learned how to make digital
+          experiences from the beginning to the end. From coming up with the
+          concept and doing user research to making it come to life by designing
+          and programming.
+        </p>
+        <p class="info__text--2">
+          I have a passion for both coding and designing. My favourite
+          projects are where I can combine both. I love creating digital
+          solutions that look good, are accessible and have fun, interactive
+          details.
+        </p>
+      </div>
+    </div>
+    <button class="button area button__about">
+      <p class="button--text">Read my resume</p>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="13"
+        viewBox="0 0 16 13"
+        fill="none"
+      >
+        <path
+          d="M10.7061 1.03027C10.7061 2.64195 11.6717 3.90023 12.792 4.77246C13.3477 5.20511 13.9243 5.52772 14.3965 5.73535C14.6326 5.83914 14.8366 5.91202 14.9932 5.95508C15.0925 5.98237 15.1552 5.99268 15.1875 5.99707H15.2725L15.334 6.99316C15.3139 6.99566 15.2933 6.9941 15.2725 6.99512V6.99707H15.2354C15.2125 6.9973 15.1894 6.99829 15.166 6.99707H0.25V5.99707H12.792C12.5881 5.86477 12.3814 5.72009 12.1777 5.56152C10.9344 4.59351 9.70605 3.07616 9.70605 1.03027H10.7061Z"
+          fill="#01070F"></path>
+        <path
+          d="M10.7061 11.9697C10.7061 10.3581 11.6717 9.09977 12.792 8.22754C13.3477 7.79489 13.9243 7.47228 14.3965 7.26465C14.6326 7.16086 14.8366 7.08798 14.9932 7.04492C15.0925 7.01763 15.1552 7.00732 15.1875 7.00293H15.2725L15.334 6.00684C15.3139 6.00434 15.2933 6.0059 15.2725 6.00488V6.00293H15.2354C15.2125 6.0027 15.1894 6.00171 15.166 6.00293H0.25V7.00293H12.792C12.5881 7.13523 12.3814 7.27991 12.1777 7.43848C10.9344 8.40649 9.70605 9.92384 9.70605 11.9697H10.7061Z"
+          fill="#01070F"></path>
+        <path
+          d="M10.7061 1.03027C10.7061 2.64195 11.6717 3.90023 12.792 4.77246C13.3477 5.20511 13.9243 5.52772 14.3965 5.73535C14.6326 5.83914 14.8366 5.91202 14.9932 5.95508C15.0925 5.98237 15.1552 5.99268 15.1875 5.99707H15.2725L15.334 6.99316C15.3139 6.99566 15.2933 6.9941 15.2725 6.99512V6.99707H15.2354C15.2125 6.9973 15.1894 6.99829 15.166 6.99707H0.25V5.99707H12.792C12.5881 5.86477 12.3814 5.72009 12.1777 5.56152C10.9344 4.59351 9.70605 3.07616 9.70605 1.03027H10.7061Z"
+          stroke="#01070F"
+          stroke-width="0.5"></path>
+        <path
+          d="M10.7061 11.9697C10.7061 10.3581 11.6717 9.09977 12.792 8.22754C13.3477 7.79489 13.9243 7.47228 14.3965 7.26465C14.6326 7.16086 14.8366 7.08798 14.9932 7.04492C15.0925 7.01763 15.1552 7.00732 15.1875 7.00293H15.2725L15.334 6.00684C15.3139 6.00434 15.2933 6.0059 15.2725 6.00488V6.00293H15.2354C15.2125 6.0027 15.1894 6.00171 15.166 6.00293H0.25V7.00293H12.792C12.5881 7.13523 12.3814 7.27991 12.1777 7.43848C10.9344 8.40649 9.70605 9.92384 9.70605 11.9697H10.7061Z"
+          stroke="#01070F"
+          stroke-width="0.5"></path>
+      </svg>
+    </button>
+  </section>
+
+  <BackButton href="#start" color="black" />
+  <Footer color="white" />
+</div>
