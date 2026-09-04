@@ -30,7 +30,7 @@
   --text18: 1.125rem;
   --text14: 0.875rem;
   /* 14px → 14.5px */
-  --label-text: clamp(0.875rem, 0.8646rem + 0.0463vw, 0.9063rem);
+  --label-text: clamp(0.8125rem, 0.7813rem + 0.1389vw, 0.9063rem);
   /*20px → 40px */
   --swaptext: clamp(1.25rem, 0.8333rem + 1.8519vw, 2.5rem);
   /*  17px → 22px */
@@ -168,11 +168,13 @@ main {
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  text-decoration: none;
 }
 
 .button--text {
   line-height: 100%;
   margin-top: -0.2rem;
+  text-decoration: none;
 }
 
 .button svg {
@@ -275,8 +277,8 @@ main {
   /* max-height: 491px;
   flex: 0 0 342px;
   width: 342px; */
-  flex: 0 0 min(342px, calc(100vw - (var(--padding-sides) * 2) - 1.5rem));
-  width: min(342px, calc(100vw - (var(--padding-sides) * 2) - 1.5rem));
+  flex: 0 0 min(342px, calc(100vw - (var(--padding-sides) * 2) - 1rem));
+  width: min(342px, calc(100vw - (var(--padding-sides) * 2) - 1rem));
   scroll-snap-align: start;
 }
 
@@ -327,7 +329,7 @@ main {
   font-size: var(--label-text);
   border: 1.5px solid currentColor;
   border-radius: 1.4rem;
-  padding: 0.75rem 0.95rem;
+  padding: clamp(0.65rem, 0.575rem + 0.3333vw, 0.875rem) clamp(0.7rem, 0.6417rem + 0.2593vw, 0.875rem);;
   text-align: center;
   font-size: 1rem;
   line-height: 73%;
@@ -426,7 +428,7 @@ html {
   display: inline-flex;
   align-items: center;
   background: none;
-    transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
 .screen {
