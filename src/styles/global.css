@@ -100,7 +100,8 @@ body {
 header,
 main {
   /*phone: 342px desktop 1280px*/
-  max-width: 342px;
+  /* max-width: 342px; */
+  padding: 0 var(--padding-sides);
   margin: 0 auto;
 }
 
@@ -271,9 +272,11 @@ main {
   overflow: hidden;
   text-decoration: none;
   color: inherit;
-  max-height: 491px;
+  /* max-height: 491px;
   flex: 0 0 342px;
-  width: 342px;
+  width: 342px; */
+  flex: 0 0 min(342px, calc(100vw - (var(--padding-sides) * 2) - 1.5rem));
+  width: min(342px, calc(100vw - (var(--padding-sides) * 2) - 1.5rem));
   scroll-snap-align: start;
 }
 
@@ -357,6 +360,7 @@ main {
   display: flex;
   flex-direction: row;
   gap: 1.5rem;
+  padding-right: var(--padding-sides);
   overflow-x: auto;
   overflow-y: hidden;
   padding: 1rem 0;
@@ -422,6 +426,7 @@ html {
   display: inline-flex;
   align-items: center;
   background: none;
+    transition: opacity 0.3s ease;
 }
 
 .screen {
@@ -429,9 +434,10 @@ html {
   display: flex;
   flex-flow: row;
   gap: 3rem;
+  margin-bottom: 2.6rem;
 }
 
-.screen__button--1::before {
+.screen__button--selected::before {
 
   content: url("../assets/icons/circle-about.svg");
   position: absolute;
@@ -440,9 +446,15 @@ html {
   transform: scale(50%) translate(-50%, -50%);
 }
 
-.screen__button--2 {
+.screen__button--unselected {
   opacity: 63%;
 }
+
+.screen__button:hover {
+  cursor: pointer;
+  opacity: 100%;
+}
+
 
 .screen__info--image {
   height: auto;
@@ -453,7 +465,6 @@ html {
 }
 
 .screen__info {
-  margin-top: 2.6rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: clamp(1.3125rem, -0.5208rem + 8.1481vw, 6.8125rem);
@@ -578,6 +589,7 @@ html {
 }
 
 .footer__watermark {
+  z-index: 0;
   position: absolute;
   left: -1rem;
   bottom: -0.15em;
@@ -598,7 +610,7 @@ html {
 }
 
 .footer__header {
-  z-index: 1;
+  z-index: 10;
   display: flex;
   align-items: center;
   gap: 1.5rem;
@@ -628,8 +640,8 @@ html {
   margin-bottom: 2rem;
 }
 
-.footer__intro--white{
-    color: var(--black);
+.footer__intro--white {
+  color: var(--black);
 }
 
 .footer__intro--black {
@@ -645,16 +657,18 @@ html {
 .footer__location {
   margin: 0;
   font-size: 1.375rem;
+  z-index: 3;
   font-weight: 400;
 }
 
 .footer__body {
+  z-index: 3;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
 }
 
-.footer__link--black{
+.footer__link--black {
   color: var(--white);
 }
 
@@ -720,4 +734,21 @@ html {
     transform: scaleX(1);
     transform-origin: left;
   }
+}
+
+
+.hidden {
+  display: none;
+}
+
+.screen__info--image-off {
+  display: none;
+}
+
+.screen__info--image-off.is-visible {
+  display: block;
+}
+
+.screen__info--image-on.is-hidden {
+  display: none;
 }

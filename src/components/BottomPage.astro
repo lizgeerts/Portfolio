@@ -14,19 +14,34 @@ import BackButton from "../components/BackButton.astro";
     <h2 class="about__title area">
       About <span class="about__title--green">me</span>
     </h2>
-    <div class="screen area">
-      <button class="screen__button screen__button--1">On screen</button>
-      <button class="screen__button screen__button--2">Off screen</button>
+    <div class="screen area hidden">
+      <button class="screen__button onscreen screen__button--selected"
+        >On screen</button
+      >
+      <button class="screen__button offscreen screen__button--unselected"
+        >Off screen</button
+      >
     </div>
     <div class="screen__info">
-      <Image
-        width={685}
-        height={737}
-        src={screen1}
-        format="avif"
-        alt="a picture of Liz"
-        class="screen__info--image"
-      />
+      <div class="screen__info--images">
+        <Image
+          width={685}
+          height={737}
+          src={screen1}
+          format="avif"
+          alt="A picture of Liz on screen"
+          class="screen__info--image screen__info--image-on"
+        />
+
+        <Image
+          width={685}
+          height={737}
+          src={screen2}
+          format="avif"
+          alt="A picture of Liz off screen"
+          class="screen__info--image screen__info--image-off"
+        />
+      </div>
       <div class="screen__info--nl">
         <Image class="screen__info--liz" src={lizSvg} alt="LIZ Icon" />
         <div class="info__nl--location">
@@ -35,7 +50,7 @@ import BackButton from "../components/BackButton.astro";
             src={locationSvg}
             alt="Location Icon"
           />
-          <p>Kortrijk</p>
+          <p class="info__nl--location-text">Kortrijk</p>
         </div>
       </div>
       <div class="screen__info--text">
@@ -47,10 +62,9 @@ import BackButton from "../components/BackButton.astro";
           and programming.
         </p>
         <p class="info__text--2">
-          I have a passion for both coding and designing. My favourite
-          projects are where I can combine both. I love creating digital
-          solutions that look good, are accessible and have fun, interactive
-          details.
+          I have a passion for both coding and designing. My favourite projects
+          are where I can combine both. I love creating digital solutions that
+          look good, are accessible and have fun, interactive details.
         </p>
       </div>
     </div>
@@ -84,3 +98,59 @@ import BackButton from "../components/BackButton.astro";
   <BackButton href="#start" color="black" />
   <Footer color="white" />
 </div>
+
+<script>
+  const screen = document.querySelector<HTMLElement>(".screen");
+  const btnOn = document.querySelector<HTMLButtonElement>(".onscreen");
+  const btnOff = document.querySelector<HTMLButtonElement>(".offscreen");
+
+  const imageOn = document.querySelector<HTMLElement>(
+    ".screen__info--image-on",
+  );
+  const imageOff = document.querySelector<HTMLElement>(
+    ".screen__info--image-off",
+  );
+
+  const location = document.querySelector<HTMLElement>(
+    ".info__nl--location-text",
+  );
+
+  const text1 = document.querySelector<HTMLElement>(".info__text--1");
+  const text2 = document.querySelector<HTMLElement>(".info__text--2");
+
+  // Progressive enhancement:
+  // only show the toggle when JavaScript is available.
+  screen?.classList.remove("hidden");
+
+  const switchScreen = (mode: "on" | "off") => {
+    const isOff = mode === "off";
+
+    imageOn?.classList.toggle("is-hidden", isOff);
+    imageOff?.classList.toggle("is-visible", isOff);
+
+    if (location) {
+      location.textContent = isOff ? "Baarle-Nassau" : "Kortrijk";
+    }
+
+    if (text1) {
+      text1.textContent = isOff
+        ? "Since high school I’ve had a love for programming and art. My favourite course was STEM where we learned to code with Arduino. Back then in my free time I also drew a lot on my tablet. I thought I would have to choose, but then I found Devine."
+        : "Currently, I am in my third year of Digital Design and Development (Devine) at Howest University. Here I've learned how to make digital experiences from the beginning to the end. From coming up with the concept and doing user research to making it come to life by designing and programming.";
+    }
+
+    if (text2) {
+      text2.textContent = isOff
+        ? "The course has allowed me to bring together my love for both the logical and creative fields for the past years. Besides that, I like music, baking and arts and crafts in my free time. I am the most happy when I can create something with my hands."
+        : "I have a passion for both coding and designing. My favourite projects are where I can combine both. I love creating digital solutions that look good, are accessible and have fun, interactive details.";
+    }
+
+    btnOn?.classList.toggle("screen__button--selected", !isOff);
+    btnOn?.classList.toggle("screen__button--unselected", isOff);
+
+    btnOff?.classList.toggle("screen__button--selected", isOff);
+    btnOff?.classList.toggle("screen__button--unselected", !isOff);
+  };
+
+  btnOn?.addEventListener("click", () => switchScreen("on"));
+  btnOff?.addEventListener("click", () => switchScreen("off"));
+</script>
