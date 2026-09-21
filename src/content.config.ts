@@ -26,6 +26,7 @@ const projects = defineCollection({
       label: z.string(),
       href: z.string(),
       icon: z.string().optional(),
+      placement: z.enum(["hero", "content"]),
     })),
   }),
 });

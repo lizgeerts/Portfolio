@@ -1,3 +1,63 @@
+:root {
+  --white: #EBF2FB;
+  --green: #95E896;
+  --blue: #69AAFF;
+  --black: #01070F;
+  --blue-text: #A7C8F2;
+  --gray: #EAECF0;
+  --black-soft: #121417;
+  --white-bg: #F1F5F9;
+
+
+  /* text */
+  /* 50 - 102 */
+  --H1: clamp(3.125rem, 2.0417rem + 4.8148vw, 6.375rem);
+  /* 50px → 72px */
+  --H2: clamp(3.125rem, 2.6667rem + 2.037vw, 4.5rem);
+  /* 40 - 56 */
+  --H3: clamp(2.5rem, 2.1667rem + 1.4815vw, 3.5rem);
+  /* 24px → 56px */
+  --H4: clamp(1.5rem, 0.8333rem + 2.963vw, 3.5rem);
+  /* 18 - 24 */
+  --navtext: clamp(1.125rem, 1rem + 0.5556vw, 1.5rem);
+  /* 19px → 20px */
+  --descriptiontext: clamp(1.1875rem, 1.1667rem + 0.0926vw, 1.25rem);
+  /* 18.5px → 20px */
+  --text: clamp(1.1563rem, 1.125rem + 0.1389vw, 1.25rem);
+  /* 20px */
+  --text20: 1.25rem;
+  --text17: 1.0625rem;
+  --text18: 1.125rem;
+  --text14: 0.875rem;
+  /* 14px → 14.5px */
+  --label-text: clamp(0.8125rem, 0.7813rem + 0.1389vw, 0.9063rem);
+  /*20px → 40px */
+  --swaptext: clamp(1.25rem, 0.8333rem + 1.8519vw, 2.5rem);
+  /*  17px → 22px */
+  --location-text: clamp(1.0625rem, 0.9583rem + 0.463vw, 1.375rem);
+  /*  17.5px → 20px */
+  --about-text: clamp(1.0938rem, 1.0417rem + 0.2315vw, 1.25rem);
+  /* 17px → 18px */
+  --buttons-projects: clamp(1.0625rem, 1.0417rem + 0.0926vw, 1.125rem);
+
+
+  /* spacing */
+  /* Space s: 30px → 60px */
+  --nav-space: clamp(1.875rem, 1.25rem + 2.7778vw, 3.75rem);
+  /*  25px → 28px */
+  --padding-buttonv: clamp(1.5625rem, 1.5rem + 0.2778vw, 1.75rem);
+  /*  14px → 15px */
+  --padding-buttonh: clamp(0.875rem, 0.8542rem + 0.0926vw, 0.9375rem);
+  /* 80px → 195px */
+  /* --hero-projects: clamp(11.1875rem, 10.75rem + 1.9444vw, 12.5rem); */
+  --hero-projects: clamp(5rem, 2.6042rem + 10.6481vw, 12.1875rem);
+
+  /*  14px → 23px */
+  --space-s: clamp(0.875rem, 0.6875rem + 0.8333vw, 1.4375rem);
+  /* 35px to 80px */
+  --padding-sides: clamp(2.1875rem, 1.25rem + 4.1667vw, 5rem);
+}
+
 .project__hero--image {
   width: 100%;
   height: auto;
@@ -12,7 +72,8 @@
   gap: 1rem;
 }
 
-.image__project img, .image__project--2 img {
+.image__project img,
+.image__project--2 img {
   width: 100%;
   height: auto;
 }
@@ -21,7 +82,8 @@
   max-width: 375px;
 }
 
-.image__project p:nth-of-type(2) img, .image__project--2 p:nth-of-type(1) img {
+.image__project p:nth-of-type(2) img,
+.image__project--2 p:nth-of-type(1) img {
   max-width: 205px;
 }
 
@@ -36,4 +98,145 @@
 .antwerp__videoGrid p:nth-of-type(1) img {
   max-width: 113px;
   height: auto;
+}
+
+.projects__back {
+  position: relative;
+  display: flex;
+  flex-flow: row;
+  gap: 0.8rem;
+  align-items: center;
+  font-size: var(--text20);
+  margin-top: clamp(3.125rem, 2.2917rem + 3.7037vw, 5.625rem);
+  margin-bottom: clamp(3.125rem, 2.2917rem + 3.7037vw, 5.625rem);
+}
+
+.projects__back::after {
+  content: url("../assets/icons/green-line-project.svg");
+  position: absolute;
+  width: 37px;
+  height: 24px;
+  left: 0%;
+  top: 90%;
+}
+
+.projects__back svg {
+  transition: transform 0.3s ease;
+}
+
+.projects__back:hover {
+  cursor: pointer;
+}
+
+/* Only animate when the user hasn't requested reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+
+  .projects__back:hover svg {
+    transform: translateX(-6px);
+  }
+}
+
+.navigation {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: clamp(1.6875rem, 3.3542rem + -1.8519vw, 2.9375rem);
+  /* 47 -> 27 */
+  padding: 0 var(--padding-sides);
+}
+
+.titdes__title {
+  font-size: clamp(3.125rem, 2.6667rem + 2.037vw, 4.5rem);
+  font-weight: 600;
+}
+
+.titdes__date {
+  margin: 0.8rem 0 var(--text20);
+
+  color: var(--blue);
+
+  font-size: var(--text20);
+  line-height: 1.1;
+}
+
+.titdes__description {
+  margin-bottom: 2.5rem;
+  color: var(--white);
+
+  font-size: var(--text18);
+  line-height: 1.4;
+}
+
+.phero__info {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1.9rem;
+  margin-top: 2.5rem;
+}
+
+.phero__info--set {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.65rem;
+}
+
+.phero__set--title {
+  font-size: var(--text20);
+  font-weight: 700;
+}
+
+.phero__set--text {
+  font-size: var(--text18);
+  line-height: 125%;
+  font-weight: 300;
+}
+
+.info__buttons--text {
+  line-height: 100%;
+  margin-top: -0.2rem;
+  text-decoration: none;
+  font-size: var(--text18);
+  font-weight: 600;
+}
+
+.info__buttons {
+  align-items: end;
+  display: flex;
+  flex-flow: column;
+  gap: 0.6rem;
+}
+
+.info__buttons a {
+  background-color: var(--blue);
+  color: var(--black);
+  padding: var(--padding-buttonh) var(--padding-buttonv);
+  border-radius: 1.25rem;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.info__buttons a:hover {
+  cursor: pointer;
+}
+
+.info__buttons--button img {
+  transition: transform 0.3s ease;
+}
+
+.info__buttons--button {
+  justify-self: end;
+}
+
+/* Only animate when the user hasn't requested reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+
+  .info__buttons--button:hover img {
+    transform: translateX(6px);
+  }
 }

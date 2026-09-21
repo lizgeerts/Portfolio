@@ -7,6 +7,8 @@ import { Image } from "astro:assets";
 import Layout from "./Layout.astro";
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
+import githubIcon from "../assets/icons/github.svg";
+import arrowIcon from "../assets/icons/arrow-pr-button.svg";
 
 interface Props {
   project: CollectionEntry<"projects">;
@@ -25,15 +27,47 @@ const {
   labels,
   tools,
 } = project.data;
+
+const getButtonIcon = (icon: string | undefined) => {
+  if (icon === "github") return githubIcon;
+  if (icon === "arrow") return arrowIcon;
+
+  return null;
+};
 ---
 
 <Layout>
   <Navigation />
 
   <main>
+    <a class="projects__back">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="12"
+        viewBox="0 0 16 12"
+        fill="none"
+      >
+        <path
+          d="M4.8916 11.1895C4.8916 9.57778 3.926 8.3195 2.80566 7.44727C2.24993 7.01462 1.67338 6.69201 1.20117 6.48438C0.965099 6.38059 0.761042 6.30771 0.604492 6.26465C0.505163 6.23735 0.442482 6.22705 0.410156 6.22266L0.325195 6.22266L0.263671 5.22656C0.283769 5.22407 0.304389 5.22563 0.325195 5.22461L0.325195 5.22266L0.362304 5.22266C0.385173 5.22243 0.408254 5.22144 0.43164 5.22266L15.3477 5.22266L15.3477 6.22266L2.80566 6.22266C3.00957 6.35496 3.21625 6.49964 3.41992 6.6582C4.66329 7.62622 5.8916 9.14357 5.8916 11.1895L4.8916 11.1895Z"
+          fill="#EBF2FB"></path>
+        <path
+          d="M4.8916 0.250001C4.8916 1.86168 3.926 3.11995 2.80566 3.99219C2.24993 4.42484 1.67338 4.74745 1.20117 4.95508C0.965099 5.05887 0.761042 5.13175 0.604492 5.17481C0.505163 5.2021 0.442481 5.2124 0.410156 5.2168L0.325195 5.2168L0.263671 6.21289C0.283769 6.21539 0.30439 6.21383 0.325195 6.21485L0.325195 6.2168L0.362304 6.2168C0.385173 6.21703 0.408254 6.21801 0.43164 6.2168L15.3477 6.2168L15.3477 5.2168L2.80566 5.2168C3.00957 5.08449 3.21625 4.93981 3.41992 4.78125C4.66329 3.81324 5.8916 2.29588 5.8916 0.250001L4.8916 0.250001Z"
+          fill="#EBF2FB"></path>
+        <path
+          d="M4.8916 11.1895C4.8916 9.57778 3.926 8.3195 2.80566 7.44727C2.24993 7.01462 1.67338 6.69201 1.20117 6.48438C0.965099 6.38059 0.761042 6.30771 0.604492 6.26465C0.505163 6.23735 0.442482 6.22705 0.410156 6.22266L0.325195 6.22266L0.263671 5.22656C0.283769 5.22407 0.304389 5.22563 0.325195 5.22461L0.325195 5.22266L0.362304 5.22266C0.385173 5.22243 0.408254 5.22144 0.43164 5.22266L15.3477 5.22266L15.3477 6.22266L2.80566 6.22266C3.00957 6.35496 3.21625 6.49964 3.41992 6.6582C4.66329 7.62622 5.8916 9.14357 5.8916 11.1895L4.8916 11.1895Z"
+          stroke="#EBF2FB"
+          stroke-width="0.5"></path>
+        <path
+          d="M4.8916 0.250001C4.8916 1.86168 3.926 3.11995 2.80566 3.99219C2.24993 4.42484 1.67338 4.74745 1.20117 4.95508C0.965099 5.05887 0.761042 5.13175 0.604492 5.17481C0.505163 5.2021 0.442481 5.2124 0.410156 5.2168L0.325195 5.2168L0.263671 6.21289C0.283769 6.21539 0.30439 6.21383 0.325195 6.21485L0.325195 6.2168L0.362304 6.2168C0.385173 6.21703 0.408254 6.21801 0.43164 6.2168L15.3477 6.2168L15.3477 5.2168L2.80566 5.2168C3.00957 5.08449 3.21625 4.93981 3.41992 4.78125C4.66329 3.81324 5.8916 2.29588 5.8916 0.250001L4.8916 0.250001Z"
+          stroke="#EBF2FB"
+          stroke-width="0.5"></path>
+      </svg>
+      Back</a
+    >
     <section class="project__hero">
       <div class="phero__titdes">
-        <h1 class="titdes__title">{title}</h1>
+        <h1 class="titdes__title area">{title}</h1>
         <p class="titdes__date">{date}</p>
         <p class="titdes__description">{description}</p>
       </div>
@@ -47,12 +81,12 @@ const {
       />
       <div class="phero__info">
         <div class="info__partners phero__info--set">
-          <h3 class="phero__set--title">Partners</h3>
+          <h3 class="phero__set--title area">Partners</h3>
           <p class="phero__set--text">{partners}</p>
         </div>
 
         <div class="info__labels phero__info--set">
-          <h3 class="phero__set--title">Labels</h3>
+          <h3 class="phero__set--title area">Labels</h3>
           <p class="phero__set--text">
             {labels.map((label) => <span> {label},</span>)}
           </p>
@@ -61,7 +95,7 @@ const {
         {
           technology ? (
             <div class="info__technology phero__info--set">
-              <h3 class="phero__set--title">Technology</h3>
+              <h3 class="phero__set--title area">Technology</h3>
               <p class="phero__set--text">{technology}</p>
             </div>
           ) : null
@@ -70,7 +104,7 @@ const {
         {
           tools ? (
             <div class="info__tools phero__info--set">
-              <h3 class="phero__set--title">Tools</h3>
+              <h3 class="phero__set--title area">Tools</h3>
               <p class="phero__set--text">{tools}</p>
             </div>
           ) : null
@@ -79,7 +113,7 @@ const {
         {
           role ? (
             <div class="info__role phero__info--set">
-              <h3 class="phero__set--title">Role</h3>
+              <h3 class="phero__set--title area">Role</h3>
               <p class="phero__set--text">{role}</p>
             </div>
           ) : null
@@ -87,11 +121,24 @@ const {
 
         <div class="info__buttons">
           {
-            buttons.map((button) => (
-              <a href={button.href} target="_blank" rel="noopener noreferrer">
-                {button.label}
-              </a>
-            ))
+            buttons
+              .filter((button) => button.placement === "hero")
+              .map((button) => {
+                const icon = getButtonIcon(button.icon);
+
+                return (
+                  <a
+                    class="info__buttons--button"
+                    href={button.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span class="info__buttons--text area">{button.label}</span>
+
+                    {icon && <img src={icon.src} alt="" />}
+                  </a>
+                );
+              })
           }
         </div>
       </div>

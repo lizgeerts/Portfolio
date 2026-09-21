@@ -21,19 +21,26 @@ buttons:
   - id: source-code
     label: "Source code"
     href: "#"
-    icon: "../../assets/icons/github-icon.svg"
+    icon: "github"
+    placement: "hero"
+
   - id: ux-process-site
     label: "UX process site"
     href: "#"
-    icon: "../../assets/icons/arrow.svg"
+    icon: "arrow"
+    placement: "hero"
+
   - id: development
     label: "Development process"
     href: "#"
-    icon: "../../assets/icons/arrow.svg"
+    icon: "arrow"
+    placement: "content"
+
   - id: campaign-website
     label: "Campaign website"
     href: "#"
-    icon: "../../assets/icons/arrow.svg"
+    icon: "arrow"
+    placement: "content"
 ---
 
 import antwerpVideo from '../../assets/videos/AntwerPOV-portfolio.mp4?url';
