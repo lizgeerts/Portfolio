@@ -21,13 +21,13 @@ technology: "Snapchat studio lens, Arduino, Vite, Astro, Figma, Socket.io, Supab
 buttons:
   - id: source-code
     label: "Source code"
-    href: "#"
+    href: "https://github.com/matteojacobs/integration-04"
     icon: "github"
     placement: "hero"
 
   - id: ux-process-site
     label: "UX process site"
-    href: "#"
+    href: "https://www.behance.net/gallery/251436611/AntwerPOV"
     icon: "arrow"
     placement: "hero"
 
@@ -45,11 +45,12 @@ buttons:
 ---
 
 import antwerpVideo from '../../assets/videos/AntwerpPOV-portfolio.mp4?url';
+import arrowIcon from "../../assets/icons/arrow-pr-button.svg";
 
 # The briefing
 
 I did not do this project alone, i had 3 teammates from Devine. 
-The first week of this project was in teamwork with the students of Rotterdam CMI, so that week we were in a team of 6 people. We all gathered in Rotterdam to get the brief from the client: Visit Antwerp. 
+The first week of this project was in teamwork with the students of Rotterdam CMI, so that week we were in a team of 6 people. We all gathered in Rotterdam to get the brief from the client: <span class="content__section--special"> Visit Antwerp. </span>
 
 ## The challenge
 Convince more ’young urban travelers’ (aged 18–36) to choose Antwerp for a (multi-day) city trip. 
@@ -81,7 +82,12 @@ Simply explained, the idea was to have an installation that shows you in one of 
 
 </div>
 
-[button:ux-process-site]
+<a
+  class="project__button--content"
+  href="https://www.behance.net/gallery/251436611/AntwerPOV" >
+  <span class="info__buttons--text area">UX process site</span>
+  <img src={arrowIcon.src} alt="arrow" />
+</a>
 
 ## Research
 
@@ -111,11 +117,16 @@ I think the most difficult part of this was communicating with the lens. I didn�
 
 After the installation was almost done technically, all that needed to happen was to make the final lenses in lens studio and puzzle all the technical pieces together.
 
-[button:development]
+<a
+  class="project__button--content"
+  href="https://www.figma.com/board/SfhQOq8vWL0AuCFqQ8dFfX/AntwerPOV---Dev-process?node-id=0-1&t=8RYfgSmztWoPG2iB-1" >
+  <span class="info__buttons--text area">Development process</span>
+  <img src={arrowIcon.src} alt="arrow" />
+</a>
 
 ## Final pieces
 
-After the installation was done, I jumped in here and there where on what my teammates were working on like the UX process site and the coding of the campaign website. 
+After the installation was done, I helped my teammates here and there, like the UX process site and the coding of the campaign website. 
 
 # The result
 
@@ -145,4 +156,9 @@ On the campaign website, people can find information about the campaign and each
 
 The campaign website is made with Astro with a React island for the dynamic captured images. Meaning if you take an image from the installation it will immediately appear on the website.
 
-[button:campaign-website]
+<a
+  class="project__button--content"
+  href="https://matteojacobs.github.io/integration-04/" >
+  <span class="info__buttons--text area">Campaign website</span>
+  <img class="project__button--arrow" src={arrowIcon.src} alt="arrow" />
+</a>

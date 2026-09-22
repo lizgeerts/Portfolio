@@ -1,53 +1,112 @@
-<section class="project-sections">
-  <nav class="project-section-navigation">
-    <a href="#briefing"> The briefing </a>
+<div class="content__wrapper">
+  <nav class="content__navigation" aria-label="Project sections">
+    <button
+      class="content__navigation--button is-active area"
+      data-section="briefing"
+      type="button"
+    >
+      Briefing
+    </button>
 
-    <a href="#process"> The process </a>
+    <button
+      class="content__navigation--button area"
+      data-section="process"
+      type="button"
+    >
+      Process
+    </button>
 
-    <a href="#result"> The result </a>
+    <button
+      class="content__navigation--button area"
+      data-section="result"
+      type="button"
+    >
+      Result
+    </button>
   </nav>
 
-  <div class="project-section-content">
-    <section id="briefing" class="project-section">
-      <h2>The briefing</h2>
-
-      <div class="project-section-text">
-        <h3>The challenge</h3>
-        <p>Your briefing content goes here...</p>
-
-        <h3>Sub challenges</h3>
-        <p>Your sub challenge content goes here...</p>
-      </div>
-    </section>
-
-    <section id="process" class="project-section">
-      <h2>The process</h2>
-
-      <div class="project-section-text">
-        <h3>Concept</h3>
-        <p>Your concept content goes here...</p>
-
-        <h3>Research</h3>
-        <p>Your research content goes here...</p>
-
-        <h3>Installation</h3>
-        <p>Your installation content goes here...</p>
-      </div>
-    </section>
-
-    <section id="result" class="project-section">
-      <h2>The result</h2>
-
-      <div class="project-section-text">
-        <h3>Concept</h3>
-        <p>Your final concept content goes here...</p>
-
-        <h3>Installation</h3>
-        <p>Your final installation content goes here...</p>
-
-        <h3>Campaign website</h3>
-        <p>Your campaign website content goes here...</p>
-      </div>
-    </section>
+  <div class="content__sections">
+    <div class="content__markdown">
+      <slot />
+    </div>
   </div>
-</section>
+</div>
+
+<script>
+  const wrapper = document.querySelector(".content__wrapper");
+
+  if (wrapper) {
+    const markdown = wrapper.querySelector(".content__markdown");
+    const navigation = wrapper.querySelector(".content__navigation");
+
+    if (markdown && navigation) {
+      const children = Array.from(markdown.children);
+      const sections: HTMLDivElement[] = [];
+      let currentSection: HTMLDivElement | null = null;
+
+      children.forEach((element) => {
+        if (element.tagName === "H1") {
+          const title = element.textContent?.trim().toLowerCase();
+
+          if (
+            title === "the briefing" ||
+            title === "the process" ||
+            title === "the result"
+          ) {
+            currentSection = document.createElement("div");
+
+            currentSection.classList.add(
+              "content__section",
+              `content__section--${title.replace("the ", "")}`,
+            );
+
+            markdown.removeChild(element);
+
+            sections.push(currentSection);
+            return;
+          }
+        }
+
+        if (currentSection) {
+          currentSection.appendChild(element);
+        }
+      });
+
+      sections.forEach((section) => {
+        markdown.appendChild(section);
+      });
+
+      const buttons = navigation.querySelectorAll(
+        ".content__navigation--button",
+      );
+
+      const showSection = (sectionName: string) => {
+        sections.forEach((section) => {
+          section.classList.toggle(
+            "is-active",
+            section.classList.contains(`content__section--${sectionName}`),
+          );
+        });
+
+        buttons.forEach((button) => {
+          button.classList.toggle(
+            "is-active",
+            button.dataset.section === sectionName,
+          );
+        });
+      };
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const sectionName = button.dataset.section;
+
+          if (sectionName) {
+            showSection(sectionName);
+          }
+        });
+      });
+
+      showSection("briefing");
+    }
+  }
+</script>

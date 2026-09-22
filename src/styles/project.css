@@ -29,6 +29,7 @@
   --text17: 1.0625rem;
   --text18: 1.125rem;
   --text14: 0.875rem;
+  --text24: 1.5rem;
   /* 14px → 14.5px */
   --label-text: clamp(0.8125rem, 0.7813rem + 0.1389vw, 0.9063rem);
   /*20px → 40px */
@@ -56,6 +57,10 @@
   --space-s: clamp(0.875rem, 0.6875rem + 0.8333vw, 1.4375rem);
   /* 35px to 80px */
   --padding-sides: clamp(2.1875rem, 1.25rem + 4.1667vw, 5rem);
+}
+
+main {
+  font-family: "Proxima nova";
 }
 
 .project__hero--image {
@@ -109,6 +114,8 @@
   font-size: var(--text20);
   margin-top: clamp(3.125rem, 2.2917rem + 3.7037vw, 5.625rem);
   margin-bottom: clamp(3.125rem, 2.2917rem + 3.7037vw, 5.625rem);
+  text-decoration: none;
+  color: var(--white)
 }
 
 .projects__back::after {
@@ -143,7 +150,7 @@
   align-items: center;
   margin-top: clamp(1.6875rem, 3.3542rem + -1.8519vw, 2.9375rem);
   /* 47 -> 27 */
-  padding: 0 var(--padding-sides);
+  /* padding: 0 var(--padding-sides); */
 }
 
 .titdes__title {
@@ -207,9 +214,11 @@
   display: flex;
   flex-flow: column;
   gap: 0.6rem;
+  margin-top: 1.1rem;
 }
 
-.info__buttons a {
+.info__buttons a,
+.project__button--content {
   background-color: var(--blue);
   color: var(--black);
   padding: var(--padding-buttonh) var(--padding-buttonv);
@@ -221,11 +230,13 @@
   text-decoration: none;
 }
 
-.info__buttons a:hover {
+.info__buttons a:hover,
+.project__button--content:hover {
   cursor: pointer;
 }
 
-.info__buttons--button img {
+.info__buttons--button img,
+.project__button--content img {
   transition: transform 0.3s ease;
 }
 
@@ -233,10 +244,163 @@
   justify-self: end;
 }
 
+.project__button--content {
+  align-self: end;
+  width: fit-content;
+}
+
 /* Only animate when the user hasn't requested reduced motion */
 @media (prefers-reduced-motion: no-preference) {
 
-  .info__buttons--button:hover img {
+  .info__buttons--button:hover img,
+  .project__button--content:hover img {
     transform: translateX(6px);
   }
+}
+
+/* projects content */
+
+
+.content__wrapper {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 5rem;
+}
+
+.content__navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 2.5rem;
+}
+
+.content__navigation--button {
+  padding: 0;
+
+  background: none;
+  border: none;
+
+  color: var(--white);
+
+  font-size: var(--text24);
+  font-weight: 600;
+  line-height: 1;
+
+  cursor: pointer;
+  position: relative;
+  opacity: 70%;
+}
+
+.content__navigation--button.is-active::before {
+  content: "";
+  position: absolute;
+  width: 103px;
+  height: 29px;
+  left: -8%;
+  top: 0%;
+  background-image: url("../assets/icons/blue-circle-projects-small.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.content__navigation--button.is-active {
+  opacity: 100%;
+}
+
+.content__sections {
+  display: flex;
+  flex-direction: column;
+}
+
+.content__markdown {
+  display: flex;
+  flex-direction: column;
+}
+
+.content__section {
+  display: none;
+  flex-direction: column;
+}
+
+.content__section.is-active {
+  display: flex;
+}
+
+.footer {
+  background-color: var(--black);
+  font-family: "Proxima nova";
+}
+
+.content__section h2 {
+  margin: 1.6rem 0 0.625rem;
+  font-size: var(--text20);
+  font-weight: 600;
+  letter-spacing: 1%;
+}
+
+.content__section h2:first-child {
+  margin-top: 0;
+}
+
+.content__section>p {
+  font-size: var(--text17);
+  font-weight: 400;
+  line-height: 130%;
+  margin-bottom: 0.9rem;
+}
+
+.content__section ul {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1rem;
+
+  margin: 0 0 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.content__section li {
+  padding-left: 0.25rem;
+
+  font-size: var(--text18);
+  line-height: 1.4;
+  position: relative;
+}
+
+.content__section li::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 19px;
+  top: 0%;
+  left: -9%;
+  background-image: url("../assets/icons/flower.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.content__section--special {
+  font-weight: 600;
+  position: relative;
+}
+
+.content__section--special::after {
+  content: url("../assets/icons/blue-line.svg");
+  position: absolute;
+  width: 90px;
+  height: auto;
+  top: 60%;
+  left: 5%;
+}
+
+.back:hover {
+  cursor: pointer;
+}
+
+.back {
+  color: var(--white);
 }
