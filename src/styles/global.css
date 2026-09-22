@@ -243,10 +243,10 @@ main {
   letter-spacing: 25%;
   color: var(--blue);
   justify-self: flex-end;
-  margin-top: 1.5rem;
+  margin-top: 2.5rem;
   position: relative;
   margin-right: 2rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.2rem;
 }
 
 .projects__indication::after {
