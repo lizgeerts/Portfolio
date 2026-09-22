@@ -587,7 +587,15 @@ html {
   overflow-y: hidden;
   overflow-x: hidden;
   margin-top: 5.3rem;
+  font-family: "Proxima nova";
+}
+
+.footer--white{
   background-color: var(--white-bg);
+}
+
+.footer--black {
+  background-color: var(--black);
 }
 
 .footer__watermark {
@@ -754,4 +762,13 @@ html {
 
 .screen__info--image-on.is-hidden {
   display: none;
+}
+
+
+
+
+.area {
+  font-family: "area-inktrap",
+    sans-serif;
+  line-height: 100%;
 }

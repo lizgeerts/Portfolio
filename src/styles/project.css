@@ -88,7 +88,7 @@ main {
 }
 
 .image__project p:nth-of-type(2) img,
-.image__project--2 p:nth-of-type(1) img {
+.image__project--2 p:nth-of-type(2) img {
   max-width: 205px;
 }
 
@@ -249,6 +249,10 @@ main {
   width: fit-content;
 }
 
+.project__button--content--last {
+  margin-top: 1rem;
+}
+
 /* Only animate when the user hasn't requested reduced motion */
 @media (prefers-reduced-motion: no-preference) {
 
@@ -335,7 +339,7 @@ main {
 }
 
 .content__section h2 {
-  margin: 1.6rem 0 0.625rem;
+  margin: 2rem 0 0.8rem;
   font-size: var(--text20);
   font-weight: 600;
   letter-spacing: 1%;
@@ -403,4 +407,82 @@ main {
 
 .back {
   color: var(--white);
+}
+
+/* images */
+
+.image__project--concept {
+  display: flex;
+  flex-flow: column;
+  margin: clamp(0.9375rem, 0.5rem + 1.9444vw, 2.25rem) 0 clamp(2rem, 1.8333rem + 0.7407vw, 2.5rem) 0;
+}
+
+.image__project--research {
+  display: flex;
+  flex-flow: column-reverse;
+  margin-top: clamp(0.9375rem, 0.5rem + 1.9444vw, 2.25rem);
+}
+
+.image__project--second {
+  align-self: flex-start;
+  max-width: 205px;
+}
+
+.image__project--research1 {
+  align-self: flex-end;
+  max-width: 205px;
+}
+
+.process__grid h2:first-child {
+  margin-top: 2rem;
+}
+
+.process__grid {
+  display: flex;
+  flex-flow: column
+}
+
+.process__grid a {
+  order: 3;
+}
+
+.process__grid>p {
+  font-size: var(--text17);
+  font-weight: 400;
+  line-height: 130%;
+  margin-bottom: 0.9rem;
+  order: 1;
+}
+
+.image__project--long {
+  order: 2;
+  margin-top: clamp(0.9375rem, 0.5rem + 1.9444vw, 2.25rem);
+  margin-bottom: clamp(2rem, 1.8333rem + 0.7407vw, 2.5rem);
+}
+
+/* video */
+
+.antwerp__videoGrid {
+  display: grid;
+  margin-top: 1rem;
+  grid-template-rows: 2fr 1fr;
+  grid-template-columns: 0.3fr auto 1fr;
+}
+
+.antwerp__video {
+  max-width: 341px;
+  height: fit-content;
+  grid-row: 1 / span 2;
+  grid-column: 1 / span 3;
+}
+
+.antwerp__videoGrid p:nth-of-type(1) img {
+  max-width: 48px;
+}
+
+.antwerp__videoGrid p {
+  margin-top: 0.4rem;
+  grid-row: 2;
+  grid-column: 2;
+  z-index: 10;
 }
