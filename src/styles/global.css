@@ -288,6 +288,7 @@ main {
   display: flex;
   flex-direction: column;
   color: var(--black);
+  min-height: 240px;
 }
 
 .card__title {
@@ -311,8 +312,8 @@ main {
 .card__description {
   font-size: var(--text17);
   line-height: 125%;
-  margin-bottom: 1.7rem;
-  max-width: 285px;
+  margin-bottom: 1.2rem;
+  max-width: 310px;
   padding: 0 var(--text20) 0 var(--text20);
 }
 
@@ -774,7 +775,8 @@ html {
   line-height: 100%;
 }
 
-/* miles and meals */
+/* other project cards */
+
 .card__image {
   display: flex;
   justify-content: center;
@@ -789,6 +791,26 @@ html {
 .card__img--bgmilesmeals {
   background: #525297;
   height: 100%;
+}
+
+.card__img--bgpadelpanic, .card__img--bglume, .card__img--bgplantin {
+  background: var(--white);
+  height: 100%;
+}
+
+.card__image--padelpanic {
+  height: auto;
+  max-width: 350px;
+}
+
+.card__image--lume {
+  height: auto;
+  max-width: 365px;
+}
+
+.card__image--plantin {
+  height: auto;
+  max-width: 365px;
 }
 
 .card__image--milesmeals {
