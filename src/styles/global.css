@@ -282,6 +282,50 @@ main {
   scroll-snap-align: start;
 }
 
+/* .project__card {
+  display: flex;
+  flex-flow: column;
+
+  width: min(342px, calc(100vw - (var(--padding-sides) * 2)));
+
+  border-radius: 1rem;
+  overflow: hidden;
+
+  text-decoration: none;
+  color: inherit;
+
+  position: absolute;
+
+  transition:
+    transform 0.35s ease,
+    opacity 0.35s ease;
+}
+
+.project__card:nth-child(1) {
+  transform: rotate(0deg) translateY(-0.5rem);
+  z-index: 5;
+  box-shadow: rgba(40, 41, 43, 0.52) 0px 8px 24px;
+}
+
+.project__card:nth-child(2) {
+  transform: rotate(3deg) ;
+  z-index: 4;
+}
+
+.project__card:nth-child(3) {
+  transform: rotate(-2deg) ;
+  z-index: 3;
+}
+
+.project__card:nth-child(4) {
+  transform: rotate(3deg);
+  z-index: 2;
+}
+
+.project__card:nth-child(5) {
+  transform: rotate(-3deg);
+  z-index: 1;
+} */
 
 .card__info {
   background: var(--gray);
@@ -364,10 +408,10 @@ main {
   display: flex;
   flex-direction: row;
   gap: 1.5rem;
+  padding: 1rem 0;
   padding-right: var(--padding-sides);
   overflow-x: auto;
   overflow-y: hidden;
-  padding: 1rem 0;
   width: 100%;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
@@ -377,10 +421,61 @@ main {
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
 
-  /* Firefox and IE/Edge */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  width: 100vw;
+}
+
+main {
+  overflow-x: hidden;
+}
+
+.projects__list {
+  --card-w: min(342px, calc(100vw - (var(--padding-sides) * 2) - 1rem));
+
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  padding: 1rem calc((100vw - var(--card-w)) / 2);
+  /* lets first/last card reach the center */
+  margin-inline: calc(var(--padding-sides) * -1);
+  /* break out of main's padding */
+  width: 100vw;
+  box-sizing: border-box;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
+
+.projects__list::-webkit-scrollbar {
+  display: none;
+}
+
+.project__card {
+  flex: 0 0 var(--card-w);
+  width: var(--card-w);
+  scroll-snap-align: center;
+  /* was: start */
+  scroll-snap-stop: always;
+  /* optional: prevents flicking past a card */
+}
+
+/* .projects__list {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  min-height: 650px;
+
+  padding: 2rem 0;
+} */
 
 /* Chrome, Safari, Edge, Opera */
 .projects__list::-webkit-scrollbar {
@@ -793,7 +888,9 @@ html {
   height: 100%;
 }
 
-.card__img--bgpadelpanic, .card__img--bglume, .card__img--bgplantin {
+.card__img--bgpadelpanic,
+.card__img--bglume,
+.card__img--bgplantin {
   background: var(--white);
   height: 100%;
 }
