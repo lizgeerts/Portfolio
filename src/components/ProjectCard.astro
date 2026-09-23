@@ -10,6 +10,7 @@ interface Props {
 const { project } = Astro.props;
 const {
   title,
+  className, 
   cardDate,
   labels,
   cardImage,
@@ -37,7 +38,7 @@ const cardText = cardDescription ?? description;
     </ul>
   </div>
 
-  <div class=`card__image card__img--bg${title}`>
-    <Image class=`card__image--img card__image--${title}` src={cardImg} alt={title} width={490} height={580} />
+  <div class=`card__image card__img--bg${className}`>
+    <Image class=`card__image--img card__image--${className}` src={cardImg} alt={title} width={490}/>
   </div>
 </a>

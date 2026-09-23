@@ -356,6 +356,10 @@ main {
   margin-bottom: 0.9rem;
 }
 
+.content__section>p:nth-child(1){
+  max-width: 343px;
+}
+
 .content__section ul {
   display: flex;
   flex-direction: column;
@@ -486,3 +490,4 @@ main {
   grid-column: 2;
   z-index: 10;
 }
+
