@@ -493,6 +493,14 @@ main {
   z-index: 10;
 }
 
+.lume__videoGrid{
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.lume__video{
+  height: auto;
+}
 
 /* other project images */
 
