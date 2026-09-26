@@ -4,160 +4,143 @@ className: "padelpanic"
 date: "January 2026"
 cardDate: "2026"
 
-image: "../../assets/images/projects/antwerp-pov.png"
+image: "../../assets/images/projects/padelpanic-card.png"
 cardImage: "../../assets/images/projects/padelpanic-card.png"
 
 description: "A multiplayer computer padel game made with Unity and ESP’s. Play with real rackets against robots or play together. But it’s not normal padel, some weird things may happen..."
 cardDescription: "A personal passion project for school for which i made a Unity padel computer game."
 
-partners: "Devine, Integration project and Visit Antwerp"
+partners: "Devine, passion project"
 
 labels: [Game development, 3D design, Creative coding]
 
-role: "Team lead, creative technologist"
-
-technology: "Snapchat studio lens, Arduino, Vite, Astro, Figma, Socket.io, Supabase, GSAP, Typescript"
+tools: "Unity, Blender, ESP32, Figma, Photoshop"
 
 
 buttons:
   - id: source-code
     label: "Source code"
-    href: "https://github.com/matteojacobs/integration-04"
-    icon: "arrow"
+    href: "https://github.com/lizgeerts/PassionProject-LizGeerts"
+    icon: "github"
     placement: "hero"
 
   - id: ux-process-site
-    label: "UX process site"
-    href: "https://www.behance.net/gallery/251436611/AntwerPOV"
+    label: "Blogpost"
+    href: "https://app.notion.com/p/Blogpost-2a3615fa3a49803191bbdaff47c4b4b5"
     icon: "arrow"
     placement: "hero"
 ---
 
-import antwerpVideo from '../../assets/videos/AntwerpPOV-portfolio.mp4?url';
+import padelVideo from '../../assets/videos/showcase-padel.mp4?url';
 import arrowIcon from "../../assets/icons/arrow-pr-button.svg";
 
 # The briefing
 
-I did not do this project alone, i had 3 teammates from Devine. 
-The first week of this project was in teamwork with the students of Rotterdam CMI, so that week we were in a team of 6 people. We all gathered in Rotterdam to get the brief from the client: <span class="content__section--special"> Visit Antwerp. </span>
+## The challenge 
 
-## The challenge
-Convince more ’young urban travelers’ (aged 18–36) to choose Antwerp for a (multi-day) city trip. 
+Make something you are <span class="content__section--special content__section--specialpadel">passionate</span> about. We had complete freedom as long as it has to do with development and you learn something new.  
 
-## Sub challenges
+## Extra information
 
-- Place one of these main themes at the core of the concept: city by the river, style, flavour, 24/7 pulse and historic heart with modern beat
+Create your own schedule with milestones, deliverables, expected end results. I was in control of my own planning and had to communicate about it. 
 
-- Clearly connect with the mindset of gen-z, zillennial and/or millennials, we focussed on connecting to the mindset of gen-z.
+We all got assigned a coach. A teacher we discuss our process with every week. I had to document my work process in detail. Reflect on my choices and alternatives. 
 
-- The concept should contain 2 out of 3: a digital application, a physical activation and / or a social media format or campaign concept
-
+In the final result you show that you explored beyond the knowledge and skills acquired in the curriculum. You should be able to independently learn new knowledge and skills. You experiment within the chosen expertise. You are not afraid to make mistakes and learn from them. You challenge yourself again and again.
 
 # The process
 
-## Concept
+## Ideas
 
-The first week with the Rotterdam students was all about finding a concept. We hit the streets of Rotterdam to interview our target audience (gen-z). These conversations were to find the direction we wanted to head in for the final result. 
+Before the official start on the project, we already had a 2 hour session each week where every one of us would discuss ideas on what we wanted to do for our passion project. 
 
-After forming a how might we question, we brainstormed and brainstormed. It took us a some time to come up with our final concept but after a while AntwerPOV was formed. 
+Since I often make silly browser games for other assignments, I wanted to learn how to make a proper game. Something we also don’t see in our curriculum so I thought it would be perfect to experiment with Unity.,
 
-Simply explained, the idea was to have an installation that shows you in one of Antwerps stereotype point of views by placing you in front of the camera wearing 3D AR items fitting with that stereotype. It comes with a website on which you can be featured and explains the whole campaign.
+I brainstormed on ideas for the game and ended up wanting to make something similar like wii tennis but then for padel, and with a twist where all kinds of weird things start happening and the goal is to keep playing. In this stage I also started experimenting with some Youtube tutorials.
 
 <div class="image__project image__project--concept">
 
 <div class="image__project--first">
-![](../../assets/images/projects/antwerp-concept1.png)
+![](../../assets/images/projects/padel-process1.png)
 </div>
 
 <div class="image__project--second">
-![](../../assets/images/projects/antwerp-concept2.png)
+![](../../assets/images/projects/padel-process2.png)
 </div>
 
 </div>
 
-<a
-  class="project__button--content"
-  href="https://www.behance.net/gallery/251436611/AntwerPOV" >
-  <span class="info__buttons--text area">UX process site</span>
-  <img src={arrowIcon.src} alt="arrow" />
-</a>
 
-## Research
+## Base game
 
-The concept took on many forms throughout our process, changing depending on technical limitations, new findings and more. 
+Before the passion project officially started, I began with some 3D tutorials. At this time, I hadn’t had the lessons on 3D yet but for this game I couldn’t take everything from the Unity asset store, since I could not find things like a padel cage. I created the characters with the rackets, the NPC’s and the padel cage parts in Blender.
 
-We did interviews and a survey to find out what stereotypes of Antwerp are most widely known. The idea became more clear and that is when we all had our own task. I was in charge of the analytical parts of UX like the wireframes and figuring out the data. At the same time my teammate Bryan I also started experimenting with softwares and other technology to see what would work best for the installation and for the website.
+Once I had all that, the project was officially on. I started with making the NPC’s play against each other first, so later I could more easily introduce the player. In the beginning I handled it wrong, costing me a lot of time, but it was also a big learning opportunity. I had started with real physics and gravity, making the game unpredictable and almost impossible for me to make it work. 
+
+I took a big leap and restarted on the whole thing. At this point I had a racket with an ESP attached that could roughly detect a swing, a joystick with which you could move the player and a badly working padel game where the ball could make it over the net for a maximum of 1 time. 
+
+As I started over, it had become a lot easier since I had already worked with Unity for a week or two. Instead of physics, I controlled everything. Instead I now used randomised factors and more and with code everything was now decided. The game was now working a lot better! Because of this, I sadly didn’t have time to implement all real life padel plays, but at least the player was able to actually play now!
 
 <div class="image__project image__project--2 image__project--research">
 
 <div class="image__project--research1">
-![](../../assets/images/projects/antwerp-research1.png)
+![](../../assets/images/projects/padel-process3.png)
 </div>
 
 <div class="image__project--research2">
-![](../../assets/images/projects/antwerp-research2.png)
+![](../../assets/images/projects/padel-process4.png)
 </div>
 
 </div>
 
-<div class="process__grid">
-  ## Installation
+<div class="process__grid--padel">
+  ## Space
 
   <div class="image__project image__project--long">
 
-  ![](../../assets/images/projects/antwerp-installation.png)
+  ![](../../assets/images/projects/padel-process5.png)
 
   </div>
 
-  In the middle of the project, the installation was my main priority. One of my teammates made all the 3D items while i put the installation together technically. I tried out many different options for the AR but ended up using Snapchat Studio Lens. It was really fun to learn a new software. 
+  I had the idea that after a few points, you would get taken to space and then random things happen that would make it more difficult. 
 
-  I think the most difficult part of this was communicating with the lens. I didn’t spend to long figuring out the webRTC part and getting the snapchat lenses in the browser, but what we also needed was to be able to toggle extra items to the lens via the browser. I knew it had to be possible so kept on trying and figured it out eventually. 
+  Every other point something happens. I created 5 scenarios and one would randomly happen. Like the camera starts moving in circles, you start floating, a black hole appears making the ball disappear and re-appear, ...
 
-  After the installation was almost done technically, all that needed to happen was to make the final lenses in lens studio and puzzle all the technical pieces together.
+  ## Multiplayer
+  
+  Till now I had one racket with an ESP and an MPU attached that controlled the player (I had removed the joystick and movement was automatic). Now it was time to add in a second player. I duplicated the racket setup and added some extra options to the main menu. I got it working and if you select multiplayer, both the ESP’s will be sending data and each character will listen to the correct one. 
 
   <a
     class="project__button--content"
-    href="https://www.figma.com/board/SfhQOq8vWL0AuCFqQ8dFfX/AntwerPOV---Dev-process?node-id=0-1&t=8RYfgSmztWoPG2iB-1" >
-    <span class="info__buttons--text area">Development process</span>
+    href="https://app.notion.com/p/Blogpost-2a3615fa3a49803191bbdaff47c4b4b5" >
+    <span class="info__buttons--text area">Full process blog post</span>
     <img src={arrowIcon.src} alt="arrow" />
   </a>
 </div>
 
-## Final pieces
-
-After the installation was done, I helped my teammates here and there, like the UX process site and the coding of the campaign website. 
 
 # The result
 
-## Final concept
+## Padel game
 
-AntwerPOV is an interactive campaign that uses Antwerps most known stereotypes as point of views. With an interactive installation on the streets of Belgiums cities, people are placed in a point of view by seeing themselves wear items fitting the stereotype. They can discover Antwerp through the eyes of those types. 
+I am very proud of what I created in just 6 weeks. I learned a lot here and am so glad I ended up with a game that is actually playable! 
 
-There is a total of 7 stereotypes, but due to time we were only able to make lenses for 3 of them. We did work out routes and all information for all seven (see UX process site). 
+You play this game with an actual padel racket. In the rackets are an ESP with a MPU hidden together with a power bank (demo purposes). The ESP and Unity game communicate via the wifi, but with more time i would’ve liked to have done it via bluetooth. 
 
-## Installation
+<div class="padel__videoGrid">
 
-The installation consists out of two parts: an iPad and the screen itself. This installation places the user in the point of view of an Antwerp stereotype. There is also a pedal attached that can be used to switch between pov’s. With the iPad, the user can customise the point of view: how do you see Antwerp?
-
-<div class="antwerp__videoGrid">
-
-<video class="antwerp__video" width="695" height="334" controls>
- <source src={antwerpVideo} />
+<video class="padel__video"  controls>
+ <source src={padelVideo} />
 </video>
-
-![](../../assets/images/projects/antwerp-pedal.png)
 
 </div>
 
-## Campaign website
+  <div class="image__project image__padel--grid">
 
-On the campaign website, people can find information about the campaign and each stereotype. They can also land on the routes page via the qr code on the installation. If they capture an image of themselves and check ‘feature me’ their image will appear on the website via our Supabase database. Sadly we don’t have pro so the database is now paused. 
+  ![](../../assets/images/projects/padel-final1.png)
 
-The campaign website is made with Astro with a React island for the dynamic captured images. Meaning if you take an image from the installation it will immediately appear on the website.
+  ![](../../assets/images/projects/padel-final2.png)
 
-<a
-  class="project__button--content project__button--content--last"
-  href="https://matteojacobs.github.io/integration-04/" >
-  <span class="info__buttons--text area">Campaign website</span>
-  <img class="project__button--arrow" src={arrowIcon.src} alt="arrow" />
-</a>
+  ![](../../assets/images/projects/padel-final3.png)
+
+  </div>
