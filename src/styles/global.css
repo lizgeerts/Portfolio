@@ -53,7 +53,7 @@
   --hero-projects: clamp(5rem, 2.6042rem + 10.6481vw, 12.1875rem);
 
   /*  14px → 23px */
-  --space-s: clamp(0.875rem, 0.6875rem + 0.8333vw, 1.4375rem);
+  --space-s: clamp(0.875rem, 0.6154rem + 1.1538vw, 1.4375rem);
   /* 35px to 80px */
   --padding-sides: clamp(2.1875rem, 1.25rem + 4.1667vw, 5rem);
 }
@@ -234,6 +234,7 @@ main {
 .projects__description {
   font-size: var(--text);
   line-height: 130%;
+  max-width: 555px;
 }
 
 .projects__indication {
@@ -405,22 +406,6 @@ main {
 /* Container horizontal scroll setup */
 
 .projects__list {
-  display: flex;
-  flex-direction: row;
-  gap: 1.5rem;
-  padding: 1rem 0;
-  padding-right: var(--padding-sides);
-  overflow-x: auto;
-  overflow-y: hidden;
-  width: 100%;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-
   scrollbar-width: none;
   -ms-overflow-style: none;
   width: 100vw;
@@ -435,8 +420,9 @@ main {
 
   display: flex;
   flex-direction: row;
-  gap: 1.5rem;
+  gap: clamp(1.5rem, 0.4792rem + 4.537vw, 4.5625rem);
   padding: 1rem calc((100vw - var(--card-w)) / 2);
+  padding-left: var(--padding-sides);
   /* lets first/last card reach the center */
   margin-inline: calc(var(--padding-sides) * -1);
   /* break out of main's padding */
@@ -526,6 +512,7 @@ html {
   align-items: center;
   background: none;
   transition: opacity 0.3s ease;
+  position: relative;
 }
 
 .screen {
@@ -536,13 +523,22 @@ html {
   margin-bottom: 2.6rem;
 }
 
-.screen__button--selected::before {
+/* .screen__button--selected::before {
 
   content: url("../assets/icons/circle-about.svg");
   position: absolute;
   width: 100px;
   height: 30px;
   transform: scale(50%) translate(-50%, -50%);
+} */
+
+.screen__button--selected::before {
+  content: "";
+  position: absolute;
+  inset: -0.5em -0.6em;
+  background: url("../assets/icons/circle-about.svg") center / 100% 100% no-repeat;
+  transform: translateY(4px);
+  pointer-events: none;
 }
 
 .screen__button--unselected {
@@ -565,7 +561,7 @@ html {
 
 .screen__info {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: auto 1fr;
   column-gap: clamp(1.3125rem, -0.5208rem + 8.1481vw, 6.8125rem);
   row-gap: 1.6rem;
 }
@@ -908,6 +904,7 @@ html {
 .card__image--plantin {
   height: auto;
   max-width: 365px;
+  transform: translateY(2%);
 }
 
 .card__image--milesmeals {
@@ -917,3 +914,79 @@ html {
 }
 
 
+/* responsive */
+
+@media only screen and (min-width: 800px) {
+
+  /*hero */
+  .hhero__sub {
+    flex-flow: row;
+    align-items: flex-start;
+    margin-top: clamp(3.125rem, 1.5625rem + 3.125vw, 4.375rem);
+    gap: clamp(3.125rem, -7.0312rem + 20.3125vw, 11.25rem);
+  }
+
+  .homepage__hero--image {
+    margin: 0;
+    align-self: flex-start;
+    max-width: 300px;
+  }
+
+  .nav__links--contact {
+    display: block;
+  }
+
+  /* project cards */
+
+  .projects__list {
+    --card-w: 600px;
+  }
+
+  .project__card {
+    height: 295px;
+    flex-flow: row;
+  }
+
+  .card__info {
+    min-height: 295px;
+    flex: 1;
+    min-width: 356px;
+  }
+
+  .card__image--milesmeals {
+    width: 350px;
+  }
+
+  .card__image {
+    width: 243px;
+  }
+
+  .card__image--AntwerPOV {
+    transform: translateY(5%);
+  }
+
+  .card__image--padelpanic {
+    max-width: 385px;
+    transform: translateX(16%);
+  }
+
+  .card__image--lume {
+    max-width: 455px;
+  }
+
+  .card__image--plantin {
+    max-width: 321px;
+    transform: translateY(0%) translateX(-7%);
+  }
+
+  /*about */
+
+  .screen__info--text{
+    max-width: 640px;
+  }
+
+  .screen, .about__title{
+    margin-bottom: 4rem;
+  }
+
+}

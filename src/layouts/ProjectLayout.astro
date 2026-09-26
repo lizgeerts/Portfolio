@@ -89,7 +89,15 @@ const getButtonIcon = (icon: string | undefined) => {
         <div class="info__labels phero__info--set">
           <h3 class="phero__set--title area">Labels</h3>
           <p class="phero__set--text">
-            {labels.map((label) => <span> {label},</span>)}
+            {
+              labels.map((label, index) => (
+                <span>
+                  {" "}
+                  {label}
+                  {index < labels.length - 1 ? ", " : ""}
+                </span>
+              ))
+            }
           </p>
         </div>
 

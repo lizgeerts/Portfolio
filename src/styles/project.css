@@ -66,6 +66,7 @@ main {
 .project__hero--image {
   width: 100%;
   height: auto;
+  justify-self: center;
 }
 
 .project__hero--AntwerPOV {
@@ -230,6 +231,7 @@ main {
   align-items: center;
   gap: 10px;
   text-decoration: none;
+  max-height: 43px;
 }
 
 .info__buttons a:hover,
@@ -386,7 +388,7 @@ main {
   width: 20px;
   height: 19px;
   top: 0%;
-  left: -9%;
+  left: -25px;
   background-image: url("../assets/icons/flower.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -533,7 +535,7 @@ main {
   gap: 0.8rem;
 }
 
-.image__project--finalplantin img{
+.image__project--finalplantin img {
   width: 100%;
   height: auto;
   border-radius: 15px;
@@ -600,4 +602,51 @@ main {
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+
+/* media queries*/
+
+@media only screen and (min-width: 520px) {
+  .content__section>p:nth-child(1) {
+    max-width: 100%;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+
+  .titdes__description {
+    max-width: 616px;
+  }
+
+  .phero__titdes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .titdes__title {
+    grid-column: 1;
+    grid-row: 1;
+    line-height: 130%;
+  }
+
+  .titdes__date {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    align-self: end;
+    margin: 0;
+  }
+
+  .titdes__description {
+    grid-column: 1/span 2;
+    grid-row: 2;
+  }
+
+  .phero__set--text {
+    max-width: 530px;
+    line-height: 135%;
+  }
 }
