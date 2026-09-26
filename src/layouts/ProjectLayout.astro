@@ -19,6 +19,7 @@ interface Props {
 const { project } = Astro.props;
 const {
   title,
+  className,
   date,
   image,
   description,
@@ -74,12 +75,10 @@ const getButtonIcon = (icon: string | undefined) => {
         <p class="titdes__description">{description}</p>
       </div>
       <Image
-        width={792}
-        height={1245}
         src={image}
         format="avif"
         alt={title}
-        class=`project__hero--image project__hero--${title}`
+        class=`project__hero--image project__hero--${className}`
       />
       <div class="phero__info">
         <div class="info__partners phero__info--set">
