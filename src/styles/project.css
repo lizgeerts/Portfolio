@@ -677,7 +677,7 @@ main {
   }
 
   .content__navigation--button {
-    font-size: clamp(2.125rem, 0.4063rem + 3.4375vw, 3.5rem);
+    font-size: clamp(2.125rem, 1.0313rem + 2.1875vw, 3rem);
   }
 
   .content__navigation--button {
@@ -851,9 +851,9 @@ main {
     margin-top: calc(clamp(0.9375rem, 0.5rem + 1.9444vw, 2.25rem) - 1rem);
   }
 
-    .image__project--finalplantin img{
-      max-width: 520px;
-    }
+  .image__project--finalplantin img {
+    max-width: 520px;
+  }
 }
 
 
@@ -864,5 +864,98 @@ main {
 
   .navigation__label--short {
     display: none;
+  }
+
+
+}
+
+@media only screen and (min-width: 1080px) {
+
+  .project__hero {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: repeat(3, auto);
+    column-gap: clamp(3.125rem, -10.9375rem + 20.8333vw, 7.8125rem);
+  }
+
+  .phero__titdes {
+    grid-row: 1;
+    grid-column: 2;
+    margin-bottom: 0;
+  }
+
+  .phero__info {
+    grid-row: 2;
+    grid-column: 2;
+  }
+
+  .project__hero--image {
+    grid-row: 1/ span 3;
+    grid-column: 1;
+  }
+
+  .info__buttons {
+    grid-row: 3;
+    grid-column: 2;
+  }
+
+  .titdes__description {
+    margin-bottom: 0;
+  }
+
+  .phero__info {
+    margin-top: 1.5rem;
+  }
+
+  .content__wrapper {
+    flex-flow: row;
+    gap: clamp(4.0625rem, -11.875rem + 23.6111vw, 9.375rem);
+  }
+
+  .content__navigation {
+    flex-flow: column;
+    justify-content: flex-start;
+    gap: clamp(3.75rem, 0rem + 5.5556vw, 5rem);
+  }
+
+  .content__navigation--button {
+    width: 100%;
+    justify-items: flex-start;
+    text-align: left;
+  }
+
+  .content__sections {
+    max-width: 700px;
+    justify-self: flex-end;
+  }
+
+  .navigation__label--long {
+    display: none;
+  }
+
+  .navigation__label--short {
+    display: block;
+  }
+
+}
+
+@media only screen and (min-width: 1280px) {
+  .navigation__label--long {
+    display: block;
+  }
+
+  .navigation__label--short {
+    display: none;
+  }
+
+  .content__wrapper {
+    margin-top: clamp(5rem, 1.875rem + 6.25vw, 7.5rem);
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+
+  .content__sections {
+    max-width: 800px;
   }
 }

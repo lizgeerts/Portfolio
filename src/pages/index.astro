@@ -17,7 +17,9 @@ import BottomPage from "../components/BottomPage.astro";
 	<main id="start">
 		<section class="homepage__hero">
 			<h1 class="area hhero__title">Creative</h1>
-			<h1 class="area hhero__title hhero__title--special">Developer</h1>
+			<h1 class="area hhero__title hhero__title--special">
+				Developer <span class="hhero__title--hidden">& Designer</span>
+			</h1>
 			<div class="hhero__sub">
 				<div class="hhero__info">
 					<p class="hhero__description">
@@ -72,7 +74,10 @@ import BottomPage from "../components/BottomPage.astro";
 				> and <span class="smallcircle">fun</span> experiences. Here are some of my
 				best works.
 			</p>
-			<p class="projects__indication area">SWIPE</p>
+			<p class="projects__indication area">
+				<span class="projects__indication--mobile">SWIPE</span>
+				<span class="projects__indication--desktop">SCROLL</span>
+			</p>
 			<div class="projects__list">
 				{projects.map((project) => <ProjectCard project={project} />)}
 			</div>
