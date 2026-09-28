@@ -1007,7 +1007,6 @@ html {
 /* Mouse / trackpad */
 @media (pointer: fine) {
 
-  .hhero__title--hidden,
   .projects__indication--desktop {
     display: inline;
   }
@@ -1086,4 +1085,34 @@ html {
     margin: 0;
     margin-top: -1rem;
   }
+
+  .homepage__hero--image {
+    max-width: 350px;
+  }
+
+  .hhero__title--hidden {
+    display: inline;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .homepage__hero--image {
+    max-width: 480px;
+  }
+}
+
+p,
+li,
+blockquote {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+.content__section--special {
+  white-space: nowrap;
 }

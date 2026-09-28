@@ -627,6 +627,12 @@ main {
   max-width: 100%;
 }
 
+
+.final__buttonnext {
+  display: flex;
+  flex-flow: column
+}
+
 /* media queries*/
 
 @media only screen and (min-width: 520px) {
@@ -799,8 +805,13 @@ main {
     margin-top: calc(clamp(1.5rem, 0.25rem + 2.5vw, 2.5rem) - 0.9rem);
   }
 
-  .project__button--content {
+  /* .project__button--content {
     align-self: start;
+  } */
+
+  .final__buttonnext a {
+    align-self: start;
+    margin-left: 2rem;
   }
 
   .project__hero--milesmeals {
@@ -908,8 +919,11 @@ main {
   }
 
   .content__wrapper {
-    flex-flow: row;
-    gap: clamp(4.0625rem, -11.875rem + 23.6111vw, 9.375rem);
+    /* flex-flow: row; */
+    /* gap: clamp(4.0625rem, -11.875rem + 23.6111vw, 9.375rem); */
+    gap: clamp(7.5rem, -0.2885rem + 11.5385vw, 9.375rem);
+    display: grid;
+    grid-template-columns: auto 1fr;
   }
 
   .content__navigation {
@@ -925,8 +939,8 @@ main {
   }
 
   .content__sections {
-    max-width: 700px;
-    justify-self: flex-end;
+    /* max-width: 700px; */
+    /* justify-self: flex-end; */
   }
 
   .navigation__label--long {
@@ -937,6 +951,26 @@ main {
     display: block;
   }
 
+  .content__wrapper {
+    margin-top: clamp(5.625rem, -19.6875rem + 37.5vw, 9.375rem);
+  }
+
+  .project__hero--lume {
+    max-width: 450px
+  }
+
+  .titdes__title {
+    font-size: 3rem;
+  }
+
+  .project__hero--padelpanic {
+    max-width: 400px;
+  }
+
+  .project__hero--milesmeals,
+  .project__hero--plantin {
+    max-width: 430px;
+  }
 }
 
 @media only screen and (min-width: 1280px) {
@@ -948,14 +982,41 @@ main {
     display: none;
   }
 
-  .content__wrapper {
+  /* .content__wrapper {
     margin-top: clamp(5rem, 1.875rem + 6.25vw, 7.5rem);
+  } */
+
+  .titdes__title {
+    font-size: clamp(3.125rem, 2.6667rem + 2.037vw, 4.5rem);
+  }
+
+  .project__hero--padelpanic {
+    max-width: 450px;
+    margin-top: 1.5rem;
+  }
+
+  .project__hero--plantin {
+    max-width: 500px;
+  }
+
+  .content__section>p,
+  .process__grid--padel>p,
+  .process__grid>p {
+    font-size: var(--text18);
   }
 }
 
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 1380px) {
 
   .content__sections {
     max-width: 800px;
+  }
+
+  .project__hero--milesmeals {
+    max-width: 500px;
+  }
+
+  .project__hero--lume {
+    max-width: 510px;
   }
 }
