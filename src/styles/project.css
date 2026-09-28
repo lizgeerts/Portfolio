@@ -987,7 +987,7 @@ main {
   } */
 
   .titdes__title {
-    font-size: clamp(3.125rem, 2.6667rem + 2.037vw, 4.5rem);
+    font-size: clamp(3.125rem, 2.6667rem + 2.037vw, 3.7rem);
   }
 
   .project__hero--padelpanic {
@@ -1003,6 +1003,19 @@ main {
   .process__grid--padel>p,
   .process__grid>p {
     font-size: var(--text18);
+  }
+
+  .image__project--final p:nth-of-type(1) img {
+    max-width: 411px;
+  }
+
+  .image__project--finalflex p:nth-of-type(1) img,
+  .image__project--finalflex img {
+    max-width: 211px;
+  }
+
+  .image__project--finalplantin p:nth-of-type(1) img{
+    max-width: 520px;
   }
 }
 

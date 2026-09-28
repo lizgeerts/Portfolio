@@ -1037,6 +1037,11 @@ html {
 
 @media only screen and (min-width: 1080px) {
 
+  .logo svg {
+    width: 54px;
+    height: auto;
+  }
+
   .projects__list> :nth-child(even) {
     margin-top: clamp(1.5rem, -1.5rem + 4.4444vw, 2.5rem);
   }
@@ -1098,6 +1103,17 @@ html {
 @media only screen and (min-width: 1280px) {
   .homepage__hero--image {
     max-width: 480px;
+  }
+
+  .screen__info {
+    grid-template-rows: auto 1fr;
+    row-gap: 2rem;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .hhero__description {
+    max-width: 540px;
   }
 }
 
