@@ -1115,6 +1115,12 @@ html {
   .hhero__description {
     max-width: 540px;
   }
+
+  .footer__watermark {
+    bottom: -0.23em;
+    left: -1rem;
+    font-size: clamp(20rem, 5rem + 18.75vw, 21.875rem);
+  }
 }
 
 p,
@@ -1131,4 +1137,25 @@ h3 {
 
 .content__section--special {
   white-space: nowrap;
+}
+
+
+/* very large screens */
+@media only screen and (min-width: 1600px) {
+
+  header,
+  main,
+  .about,
+  footer {
+    max-width: 1440px;
+  }
+
+  .about {
+    justify-self: center;
+  }
+
+  footer {
+    justify-self: center;
+    width: 100%;
+  }
 }
