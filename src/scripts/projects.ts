@@ -1,4 +1,3 @@
-// projects.ts
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -20,12 +19,10 @@ export function initProjectsReveal() {
         start: "top 80%", 
         end: "top 30%",
         scrub: true,
-        markers: true   
+      
       }
     }
   );
-
-  
 
 }
 
