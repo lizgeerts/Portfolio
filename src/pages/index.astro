@@ -30,7 +30,10 @@ import Loader from "../components/Loader.astro";
 						Devine student at Howest. With a passion for web development and
 						graphic design I love creating unique digital experiences.
 					</p>
-					<a class="button area button__email--hero" href="mailto:lizgeerts@gmail.com">
+					<a
+						class="button area button__email--hero"
+						href="mailto:lizgeerts@gmail.com"
+					>
 						<p class="button--text">Send me an e-mail</p>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -100,8 +103,18 @@ import Loader from "../components/Loader.astro";
 
 <script>
 	import { initHeroAnimations } from "../scripts/hero.ts";
+	import { initProjectsReveal } from "../scripts/projects.ts";
 
-	document.addEventListener("DOMContentLoaded", () => {
+	const handleInit = () => {
 		initHeroAnimations();
-	});
+		initProjectsReveal();
+	};
+
+	// 3. Execute based on loading state
+	if (document.documentElement.classList.contains("is-loading")) {
+		document.addEventListener("loader:done", handleInit, { once: true });
+	} else {
+		handleInit();
+	}
+	
 </script>

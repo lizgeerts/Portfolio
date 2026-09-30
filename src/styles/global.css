@@ -1159,3 +1159,7 @@ h3 {
     width: 100%;
   }
 }
+
+html.is-loading .homepage__hero {
+  opacity: 0;
+}

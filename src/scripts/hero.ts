@@ -6,23 +6,9 @@ export function initHeroAnimations() {
 
   if (!hero || !mobileTitle) return;
 
-  // --------------------------------
-  // HERO ENTRANCE
-  // --------------------------------
-
-  // const elements = hero.querySelectorAll(
-  //   ".hhero__title, .hhero__description, .button, .homepage__hero--image"
-  // );
-
-  // gsap.from(elements, {
-  //   y: 30,
-  //   opacity: 0,
-  //   duration: 0.8,
-  //   stagger: 0.14,
-  //   ease: "power3.out",
-  // });
-
-  gsap.set(".homepage__hero", { perspective: 1000 });
+  gsap.set(hero, {
+    perspective: 1000,
+  });
 
   const tl = gsap.timeline({ defaults: { ease: "back.out(1.4)" } });
 
@@ -56,6 +42,8 @@ export function initHeroAnimations() {
       },
       "-=0.6"
     );
+
+
 
   // developer / designer words
 

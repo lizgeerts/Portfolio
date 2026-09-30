@@ -1,20 +1,13 @@
 ---
 import flower from "../assets/icons/flower.svg";
 
-const letters = "Liz Geerts".split("");
 ---
 
 <div class="loader" aria-hidden="true">
   <img src={flower.src} alt="blue flower" class="loader__flower" />
 
   <p class="loader__name area">
-    {
-      letters.map((char) => (
-        <span class="loader__mask">
-          <span class="loader__char">{char === " " ? "\u00A0" : char}</span>
-        </span>
-      ))
-    }
+    Loading
   </p>
 </div>
 
@@ -66,6 +59,7 @@ const letters = "Liz Geerts".split("");
   }
 </style>
 
+
 <script>
   import { gsap } from "gsap";
 
@@ -109,8 +103,8 @@ const letters = "Liz Geerts".split("");
         )
         .to(
           loader,
-          { yPercent: -100, duration: 0.8, ease: "expo.inOut" },
-          "+=0.35",
+          { yPercent: 0, duration: 0.8, ease: "expo.inOut", opacity: 0 },
+          0.3,
         );
     };
 
@@ -123,4 +117,4 @@ const letters = "Liz Geerts".split("");
       ]).then(play);
     }
   }
-</script>
+</script> 
