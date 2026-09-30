@@ -9,9 +9,11 @@ const projects = await getCollection("projects");
 
 import heroimage from "../assets/images/hero-img.png";
 import BottomPage from "../components/BottomPage.astro";
+import Loader from "../components/Loader.astro";
 ---
 
 <Layout>
+	<Loader />
 	<Navigation />
 
 	<main id="start">
@@ -85,3 +87,12 @@ import BottomPage from "../components/BottomPage.astro";
 	</main>
 	<BottomPage />
 </Layout>
+
+<script is:inline>
+	try {
+		if (!sessionStorage.getItem("loaderSeen")) {
+			sessionStorage.setItem("loaderSeen", "1");
+			document.documentElement.classList.add("is-loading");
+		}
+	} catch (e) {}
+</script>
