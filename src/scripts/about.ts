@@ -42,7 +42,6 @@ const cardExpand = () => {
           start: "top bottom",
           end: "top 10%",
           scrub: 0.6,
-          markers: true
         },
       },
     );
@@ -96,7 +95,6 @@ export const initAbout = (variant: AboutVariant = "card") => {
       scrub: true,
       pin: ".about",
       pinSpacing: true,
-      markers: true,
     },
   });
 
