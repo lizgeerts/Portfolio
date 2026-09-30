@@ -20,7 +20,8 @@ import Loader from "../components/Loader.astro";
 		<section class="homepage__hero">
 			<h1 class="area hhero__title">Creative</h1>
 			<h1 class="area hhero__title hhero__title--special">
-				Developer <span class="hhero__title--hidden">& Designer</span>
+				<span class="hhero__developer">Developer </span>
+				<span class="hhero__title--hidden">& Designer</span>
 			</h1>
 			<div class="hhero__sub">
 				<div class="hhero__info">
@@ -29,7 +30,7 @@ import Loader from "../components/Loader.astro";
 						Devine student at Howest. With a passion for web development and
 						graphic design I love creating unique digital experiences.
 					</p>
-					<a class="button area" href="mailto:lizgeerts@gmail.com">
+					<a class="button area button__email--hero" href="mailto:lizgeerts@gmail.com">
 						<p class="button--text">Send me an e-mail</p>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -95,4 +96,12 @@ import Loader from "../components/Loader.astro";
 			document.documentElement.classList.add("is-loading");
 		}
 	} catch (e) {}
+</script>
+
+<script>
+	import { initHeroAnimations } from "../scripts/hero.ts";
+
+	document.addEventListener("DOMContentLoaded", () => {
+		initHeroAnimations();
+	});
 </script>
