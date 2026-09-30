@@ -102,12 +102,14 @@ import Loader from "../components/Loader.astro";
 </script>
 
 <script>
+	import { ScrollTrigger } from "gsap/ScrollTrigger";
 	import { initHeroAnimations } from "../scripts/hero.ts";
 	import { initProjectsReveal } from "../scripts/projects.ts";
 
 	const handleInit = () => {
 		initHeroAnimations();
 		initProjectsReveal();
+		ScrollTrigger.refresh();
 	};
 
 	// 3. Execute based on loading state
@@ -116,5 +118,4 @@ import Loader from "../components/Loader.astro";
 	} else {
 		handleInit();
 	}
-	
 </script>

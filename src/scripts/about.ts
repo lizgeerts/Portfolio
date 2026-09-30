@@ -92,16 +92,18 @@ export const initAbout = (variant: AboutVariant = "card") => {
       trigger: ".bottom",
       start: "62% bottom",
       end: "50% 40%",
-      scrub: true,
+      scrub: 0.6,
       pin: ".about",
       pinSpacing: true,
+      markers: true,
+      anticipatePin: 1
     },
   });
 
   tl
     .to(
       swapTargets,
-      { y: -dist, opacity: 0, duration: 0.4, ease: "power2.in" },
+      { y: -dist, opacity: 0, duration: 0.4, ease: "power1.out" },
       0,
     )
     .fromTo(
@@ -111,7 +113,7 @@ export const initAbout = (variant: AboutVariant = "card") => {
         y: 0,
         opacity: 1,
         duration: 0.4,
-        ease: "power2.out",
+        ease: "power1.out",
         immediateRender: false, 
       },
       0.6,
