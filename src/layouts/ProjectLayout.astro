@@ -11,6 +11,7 @@ import githubIcon from "../assets/icons/github.svg";
 import arrowIcon from "../assets/icons/arrow-pr-button.svg";
 import ProjectSection from "../components/ProjectSection.astro";
 import BackButton from "../components/BackButton.astro";
+import flowerIcon from "../assets/icons/flower.svg";
 
 interface Props {
   project: CollectionEntry<"projects">;
@@ -74,12 +75,32 @@ const getButtonIcon = (icon: string | undefined) => {
         <p class="titdes__date">{date}</p>
         <p class="titdes__description">{description}</p>
       </div>
-      <Image
+      <!-- <Image
         src={image}
         format="avif"
         alt={title}
         class=`project__hero--image project__hero--${className}`
-      />
+      /> -->
+      <div class={`project__hero--image project__hero--${className}`}>
+        <Image
+          src={image}
+          format="avif"
+          alt={title}
+          class="hero-img"
+          loading="eager"
+          fetchpriority="high"
+        />
+        <div class="hero-loader" aria-hidden="true">
+          <img src={flowerIcon.src} alt="" class="hero-loader__flower" />
+        </div>
+        <noscript
+          ><style is:inline>
+            .hero-loader {
+              display: none;
+            }
+          </style></noscript
+        >
+      </div>
       <div class="phero__info">
         <div class="info__partners phero__info--set">
           <h3 class="phero__set--title area">Partners</h3>

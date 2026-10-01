@@ -1,6 +1,6 @@
 import gsap from "gsap";
 
-export function initHeroAnimations() {
+export const initHeroAnimations = () => {
   const hero = document.querySelector(".homepage__hero") as HTMLElement;
   const mobileTitle = document.querySelector(".hhero__title--special");
 

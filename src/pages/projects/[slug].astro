@@ -18,3 +18,20 @@ const { Content } = await render(project);
 <ProjectLayout project={project}>
   <Content components={{ img: MdxImage }} />
 </ProjectLayout>
+
+<script>
+  import { initHeroProjects } from "../../scripts/projectPage.ts";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  const handleInit = () => {
+    initHeroProjects();
+    ScrollTrigger.refresh();
+  };
+
+  // 3. Execute based on loading state
+  if (document.documentElement.classList.contains("is-loading")) {
+    document.addEventListener("loader:done", handleInit, { once: true });
+  } else {
+    handleInit();
+  }
+</script>

@@ -938,11 +938,6 @@ main {
     text-align: left;
   }
 
-  .content__sections {
-    /* max-width: 700px; */
-    /* justify-self: flex-end; */
-  }
-
   .navigation__label--long {
     display: none;
   }
@@ -1031,5 +1026,72 @@ main {
 
   .project__hero--lume {
     max-width: 510px;
+  }
+}
+
+
+
+/* animations */
+
+/* hero image + loader */
+
+/* wrapper: still gets width/max-width/grid placement from your existing rules */
+.project__hero--image {
+  position: relative;
+  align-self: start;
+  /* a div would otherwise stretch to the full grid height */
+}
+
+.hero-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: inherit;
+  /* picks up the 15px from --padelpanic / --plantin */
+}
+
+.hero-loader {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.hero-loader.is-done {
+  opacity: 0;
+}
+
+.hero-loader__flower {
+  width: clamp(3.5rem, 8vw, 5.5rem);
+  height: auto;
+  /* 150ms delay so fast loads never flash the flower */
+  animation:
+    hero-loader-in 0.4s ease 0.15s both,
+    hero-loader-spin 1.6s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes hero-loader-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hero-loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-loader__flower {
+    animation: hero-loader-in 0.4s ease 0.15s both;
+    /* no spinning */
   }
 }

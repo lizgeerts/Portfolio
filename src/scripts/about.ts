@@ -95,7 +95,6 @@ export const initAbout = (variant: AboutVariant = "card") => {
       scrub: 0.6,
       pin: ".about",
       pinSpacing: true,
-      markers: true,
       anticipatePin: 1
     },
   });
