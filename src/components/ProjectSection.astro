@@ -36,6 +36,8 @@
 </div>
 
 <script>
+  import { initProjectProcess } from "../scripts/projectProcess";
+
   const wrapper = document.querySelector(".content__wrapper");
 
   if (wrapper) {
@@ -110,6 +112,8 @@
       });
 
       showSection("briefing");
+
+      initProjectProcess();
     }
   }
 </script>
