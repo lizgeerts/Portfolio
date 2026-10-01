@@ -112,7 +112,6 @@ import Loader from "../components/Loader.astro";
 		ScrollTrigger.refresh();
 	};
 
-	// 3. Execute based on loading state
 	if (document.documentElement.classList.contains("is-loading")) {
 		document.addEventListener("loader:done", handleInit, { once: true });
 	} else {

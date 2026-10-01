@@ -5,7 +5,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export const initHeroProjects = () => {
   initHeroImageLoader();
-  
+
   const projectHero = document.querySelector(".project__hero") as HTMLElement;
 
   gsap.set(projectHero, {
@@ -19,7 +19,7 @@ export const initHeroProjects = () => {
     rotationX: 20,
     opacity: 0,
     filter: "blur(6px)",
-    duration: 1.1,
+    duration: 1.3,
     stagger: 0.18,
   })
     .from(
@@ -44,6 +44,8 @@ export const initHeroProjects = () => {
       },
       "-=0.6"
     );
+
+  document.documentElement.classList.remove("has-hero-anim");
 }
 
 const initHeroImageLoader = () => {
@@ -53,21 +55,20 @@ const initHeroImageLoader = () => {
 
   const remove = () => loader.remove();
 
-  // Already loaded (cached): the flower was never meant to be seen.
   if (img.complete) {
     remove();
     return;
   }
 
   const finish = () => {
-    // decode first so the image doesn't pop in half-painted
     (img.decode ? img.decode().catch(() => { }) : Promise.resolve()).then(() => {
       loader.addEventListener("transitionend", remove, { once: true });
       loader.classList.add("is-done");
-      setTimeout(remove, 600); // safety net if transitionend never fires
+      setTimeout(remove, 600);
     });
   };
 
   img.addEventListener("load", finish, { once: true });
   img.addEventListener("error", finish, { once: true });
 }
+

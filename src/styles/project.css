@@ -1033,13 +1033,9 @@ main {
 
 /* animations */
 
-/* hero image + loader */
-
-/* wrapper: still gets width/max-width/grid placement from your existing rules */
 .project__hero--image {
   position: relative;
   align-self: start;
-  /* a div would otherwise stretch to the full grid height */
 }
 
 .hero-img {
@@ -1047,7 +1043,6 @@ main {
   width: 100%;
   height: auto;
   border-radius: inherit;
-  /* picks up the 15px from --padelpanic / --plantin */
 }
 
 .hero-loader {
@@ -1067,7 +1062,6 @@ main {
 .hero-loader__flower {
   width: clamp(3.5rem, 8vw, 5.5rem);
   height: auto;
-  /* 150ms delay so fast loads never flash the flower */
   animation:
     hero-loader-in 0.4s ease 0.15s both,
     hero-loader-spin 1.6s cubic-bezier(0.65, 0, 0.35, 1) infinite;
@@ -1092,6 +1086,18 @@ main {
 @media (prefers-reduced-motion: reduce) {
   .hero-loader__flower {
     animation: hero-loader-in 0.4s ease 0.15s both;
-    /* no spinning */
+  }
+}
+
+html.has-hero-anim .phero__titdes>*,
+html.has-hero-anim .project__hero--image,
+html.has-hero-anim .phero__info,
+html.has-hero-anim .info__buttons {
+  visibility: hidden;
+}
+
+@media only screen and (min-width: 1080px) {
+  .project__hero--image {
+    width: var(--hero-w, 100%);
   }
 }

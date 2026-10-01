@@ -41,6 +41,14 @@ const getButtonIcon = (icon: string | undefined) => {
 ---
 
 <Layout>
+  <script is:inline>
+    document.documentElement.classList.add("has-hero-anim");
+    // don't leave the hero hidden if the js fails
+    setTimeout(
+      () => document.documentElement.classList.remove("has-hero-anim"),
+      4000,
+    );
+  </script>
   <Navigation />
 
   <main id="projectTOP">
@@ -81,7 +89,10 @@ const getButtonIcon = (icon: string | undefined) => {
         alt={title}
         class=`project__hero--image project__hero--${className}`
       /> -->
-      <div class={`project__hero--image project__hero--${className}`}>
+      <div
+        class={`project__hero--image project__hero--${className}`}
+        style={image.width ? `--hero-w: ${image.width}px` : undefined}
+      >
         <Image
           src={image}
           format="avif"
