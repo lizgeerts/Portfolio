@@ -15,18 +15,34 @@ const content = [
 ];
 
 const revealcontent = (start = "top 60%") => {
-  gsap.from(content, {
-    y: 40,
-    opacity: 0,
-    duration: 0.9,
-    ease: "power3.out",
-    stagger: 0.12,
-    scrollTrigger: {
-      trigger: ".about",
-      start,
-      toggleActions: "play none none reverse",
+  // gsap.from(content, {
+  //   y: 40,
+  //   opacity: 0,
+  //   duration: 0.9,
+  //   ease: "power3.out",
+  //   stagger: 0.12,
+  //   scrollTrigger: {
+  //     trigger: ".about",
+  //     start,
+  //     toggleActions: "play none none reverse",
+  //   },
+  // });
+  gsap.fromTo(
+    content,
+    { y: 40, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 0.9,
+      ease: "power3.out",
+      stagger: 0.12,
+      scrollTrigger: {
+        trigger: ".about",
+        start,
+        once: true,
+      },
     },
-  });
+  );
 }
 
 const cardExpand = () => {
@@ -121,5 +137,14 @@ export const initAbout = (variant: AboutVariant = "card") => {
   tl.eventCallback("onUpdate", () =>
     setMode(tl.progress() >= 0.5 ? "off" : "on"),
   );
+
+  document.fonts?.ready.then(() => ScrollTrigger.refresh());
+  if (document.readyState === "complete") {
+    ScrollTrigger.refresh();
+  } else {
+    window.addEventListener("load", () => ScrollTrigger.refresh(), {
+      once: true,
+    });
+  }
 
 }
