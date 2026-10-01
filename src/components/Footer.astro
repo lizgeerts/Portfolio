@@ -25,24 +25,28 @@ const { color } = Astro.props;
     <ul class="footer__links">
       <li class="footer__links-item">
         <a
+          target="_blank"
           href="mailto:lizgeerts@gmail.com"
           class=`footer__link footer__link--${color}`>Email</a
         >
       </li>
       <li class="footer__links-item">
         <a
+          target="_blank"
           href="https://github.com/lizgeerts"
           class=`footer__link footer__link--${color}`>Github</a
         >
       </li>
       <li class="footer__links-item">
         <a
+          target="_blank"
           href="https://www.linkedin.com/in/liz-geerts-2a9b11295/"
           class=`footer__link footer__link--${color}`>LinkedIn</a
         >
       </li>
       <li class="footer__links-item">
         <a
+          target="_blank"
           href="https://www.behance.net/lizgeerts"
           class=`footer__link footer__link--${color}`>Behance</a
         >
@@ -51,12 +55,13 @@ const { color } = Astro.props;
 
     <ul class="footer__nav">
       <li class="footer__nav-item">
-        <a href="#projects" class=`footer__link footer__link--${color}`
-          >Projects</a
+        <a
+          href="/Portfolio/#projects"
+          class=`footer__link footer__link--${color}`>Projects</a
         >
       </li>
       <li class="footer__nav-item">
-        <a href="#about" class=`footer__link footer__link--${color}`>About</a>
+        <a href="/Portfolio/#about" class=`footer__link footer__link--${color}`>About</a>
       </li>
     </ul>
   </div>
